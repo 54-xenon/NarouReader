@@ -11,8 +11,28 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: const Text('これは仮のテキスト'),
+        appBar: AppBar(
+          title: const Text('AppBar'),
+          backgroundColor: Colors.blue,
+        ),
+        drawer: Drawer(
+          child: ListView(
+            children: const <Widget>[
+              DrawerHeader(
+                child: Text('Drawer Header'),
+              ),
+              ListTile(
+                title: Text('menu'),
+              ),
+              ListTile(
+                title: Text('about us'),
+              )
+            ],
+          ),
+        ),
       ),
     );
   }
 }
+
+// ctl+fn+spaceで提案を表示
