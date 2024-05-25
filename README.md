@@ -17,3 +17,8 @@ samples, guidance on mobile development, and a full API reference.
 # NarouReader
 なろう小説のリーダーアプリです。
 このアプリはなろう小説APIを使用しています。
+# このアプリで実装したい機能
+- 著者検索
+- 作品の検索
+- 作品のブックマーク
+- ダークモードの追加
