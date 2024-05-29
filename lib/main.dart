@@ -15,21 +15,8 @@ class MyApp extends StatelessWidget {
           title: const Text('AppBar'),
           backgroundColor: Colors.blue,
         ),
-        body: const Center(child: Text('これがbodyのテキスト'),),
-        drawer: Drawer(
-          child: ListView(
-            children: const <Widget>[
-              DrawerHeader(
-                child: Text('Drawer Header'),
-              ),
-              ListTile(
-                title: Text('menu'),
-              ),
-              ListTile(
-                title: Text('about us'),
-              )
-            ],
-          ),
+        floatingActionButton: FloatingActionButton(
+          Icon: Icon(Icons.search)
         ),
       ),
     );
