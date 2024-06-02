@@ -29,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('なろう小説検索'),
+        title: const Text('なろう小説検索'),
       ),
       body: Padding(
         padding: EdgeInsets.all(16.0),
@@ -40,7 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
               decoration: InputDecoration(
                 labelText: 'キーワードを入力',
                 suffixIcon: IconButton(
-                  icon: Icon(Icons.search),
+                  icon: const Icon(Icons.search),
                   onPressed: () {
                     _searchNovels(_controller.text);
                   },

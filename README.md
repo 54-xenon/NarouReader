@@ -14,7 +14,7 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
-# NarouReader
+# NarouReader(予定)
 なろう小説のリーダーアプリです。このアプリでは、日々読んでいる小説の管理をより簡単に行うことができます。もう、ブラウザがタブだらけになることはありません。
 このアプリはなろう小説APIを使用しています。
 URL(https://dev.syosetu.com/man/api/#link6)
@@ -34,3 +34,4 @@ lib/
 └── screens/
     └── home_screen.dart
 今の所はこのディレクトリ構造を中心に実装していく。
+
