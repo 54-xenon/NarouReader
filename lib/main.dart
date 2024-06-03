@@ -26,11 +26,11 @@ class mainPage extends StatelessWidget {
         title: const Text('AppBar'),
         backgroundColor: Colors.blue,
       ),
-      body: Center(
+      body: const Center(
         child: Text('なろう小説APIを使用したアプリです'),
       ),
       floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.search),
+        child: Icon(Icons.search),
         backgroundColor: Colors.blue,
         onPressed: () {
           // 画面推移(main.dartからHomePageに移動する)
@@ -45,4 +45,3 @@ class mainPage extends StatelessWidget {
 }
 
 // ctl+fn+spaceで提案を表示
-// 画面推移の方法がよくわからない→多分privedとか使うのかな？

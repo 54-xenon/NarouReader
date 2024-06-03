@@ -33,5 +33,5 @@ lib/
 │   └── api_service.dart
 └── screens/
     └── home_screen.dart
-今の所はこのディレクトリ構造を中心に実装していく。
+今の所はこのディレクトリ構造を中心に実装していく。z
 
