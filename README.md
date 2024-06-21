@@ -20,6 +20,8 @@ samples, guidance on mobile development, and a full API reference.
 URL(https://dev.syosetu.com/man/api/#link6)
 ↑公式ドキュメント
 # このアプリで実装したい機能
+- リーダーとしての機能
+- firebaseを使ってブックマークとのデータをバックアップ(同期機能は難しそうだから後回し)
 - 著者検索
 - 作品の検索
 - 作品のブックマーク

@@ -44,4 +44,5 @@ class mainPage extends StatelessWidget {
   }
 }
 
-// ctl+fn+spaceで提案を表示
+// ctl+fn+spaceで提案を表示\\\
+// webviewで小説を表示できるようにする
