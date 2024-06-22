@@ -6,11 +6,13 @@ class Novel {
   final String title;
   final String story;
   final String writer;
+  final String ncode;
 
   Novel({
     required this.title,
     required this.story,
     required this.writer,
+    required this.ncode,
   });
 
   factory Novel.fromJson(Map<String, dynamic> json) {
@@ -18,6 +20,7 @@ class Novel {
       title: json['title'],
       story: json['story'],
       writer: json['writer'],
+      ncode: json['ncode'],
     );
   }
 }
