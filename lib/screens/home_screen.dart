@@ -1,6 +1,7 @@
 // lib/screens/home_screen.dart
 
 import 'package:flutter/material.dart';
+import 'package:naroureader/screens/AlertDialogPage.dart';
 import '../models/novel.dart';
 import '../services/api_survice.dart';
 
@@ -30,6 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('なろう小説検索'),
+        backgroundColor: Colors.blue,
       ),
       body: Padding(
         padding: EdgeInsets.all(16.0),
@@ -68,6 +70,11 @@ class _HomeScreenState extends State<HomeScreen> {
                           subtitle: Text(novels[index].writer),
                           onTap: () {
                             // 詳細画面に遷移するなどの処理
+                            // ここに選択した小説のページをwebviewで表示するようにしたい
+                            print("この機能はまだ利用できません");
+                            showDialog(context: context, builder: (_) {
+                              return AlertDiaLogSample();
+                            });
                           },
                         );
                       },
