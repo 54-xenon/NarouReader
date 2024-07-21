@@ -46,4 +46,5 @@ class mainPage extends StatelessWidget {
 }
 
 // ctl+fn+spaceで提案を表示\\\
-// webviewで小説を表示できるようにする
+// 検索→小説の詳細を表示するページ作る
+

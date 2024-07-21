@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:naroureader/screens/AlertDialogPage.dart';
+import 'package:naroureader/screens/detailPage.dart';
 import '../models/novel.dart';
 import '../services/api_survice.dart';
 
@@ -70,11 +71,12 @@ class _HomeScreenState extends State<HomeScreen> {
                           subtitle: Text(novels[index].writer),
                           onTap: () {
                             // 詳細画面に遷移するなどの処理
-                            // ここに選択した小説のページをwebviewで表示するようにしたい
-                            print("この機能はまだ利用できません");
-                            showDialog(context: context, builder: (_) {
-                              return AlertDiaLogSample();
-                            });
+                            //小説の詳細ページに飛ぶ処理
+                            // showDialog(context: context, builder: (_) {
+                            //   return AlertDiaLogSample();
+                            // });
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context)=> Detailpage()),
+                            );
                           },
                         );
                       },
