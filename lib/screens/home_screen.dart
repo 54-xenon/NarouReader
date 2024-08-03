@@ -1,8 +1,9 @@
 // lib/screens/home_screen.dart
 
 import 'package:flutter/material.dart';
-import 'package:naroureader/screens/AlertDialogPage.dart';
 import 'package:naroureader/screens/detailPage.dart';
+// import 'package:naroureader/screens/AlertDialogPage.dart';
+// アラートは一旦無効化する
 import '../models/novel.dart';
 import '../services/api_survice.dart';
 
@@ -76,7 +77,9 @@ class _HomeScreenState extends State<HomeScreen> {
                             // showDialog(context: context, builder: (_) {
                             //   return AlertDiaLogSample();
                             // });
-                            Navigator.of(context).push(MaterialPageRoute(builder: (context)=> Detailpage()),
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => Detailpage(novel: novels[index])),
                             );
                           },
                         );

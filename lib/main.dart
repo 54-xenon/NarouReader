@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:naroureader/screens/home_screen.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    const ProviderScope(  //Providerの範囲をMyAppにすることで全てに適応
+      child: MyApp(),
+    )
+  );
 }
 
 class MyApp extends StatelessWidget {
