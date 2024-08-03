@@ -31,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('なろう小説検索'),
+        title: const Text('小説を検索'),
         backgroundColor: Colors.blue,
       ),
       body: Padding(
@@ -68,7 +68,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       itemBuilder: (context, index) {
                         return ListTile(
                           title: Text(novels[index].title),
-                          subtitle: Text(novels[index].writer),
+                          subtitle: Text(novels[index].writer), //タイトルを表示
+                          trailing: Text(novels[index].ncode), //リストに右端にあるncodeを表示
                           onTap: () {
                             // 詳細画面に遷移するなどの処理
                             //小説の詳細ページに飛ぶ処理
