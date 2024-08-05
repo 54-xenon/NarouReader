@@ -20,12 +20,13 @@ samples, guidance on mobile development, and a full API reference.
 URL(https://dev.syosetu.com/man/api/#link6)
 ↑公式ドキュメント
 # このアプリで実装したい機能
-- リーダーとしての機能
-- firebaseを使ってブックマークとのデータをバックアップ(同期機能は難しそうだから後回し)
-- 著者検索
 - 作品の検索
-- 作品のブックマーク
-- ダークモードの追加
+- 作品の詳細情報(タイトル、著者名、storyなど)
+# このアプリで実装したい機能
+- ダークモード
+- webviewを使って検索した作品に直接飛べるようにする
+- ブックマーク機能
+- ホーム画面をダッシュボード機能を追加
 # ディレクトリのメモ
 lib/
 ├── main.dart

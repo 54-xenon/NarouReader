@@ -96,7 +96,3 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-
-
-// origin  https://github.com/54-xenon/NarouReader.git (fetch)
-// origin  https://github.com/54-xenon/NarouReader.git (push)
