@@ -6,7 +6,7 @@ class AlertDiaLogSample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text("この機能はまだ利用できません"),
+      title: const Text("この機能はまだ利用できません"),
       // タップでアラートを表示させる
       actions: <Widget>[
         GestureDetector(

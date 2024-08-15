@@ -51,5 +51,4 @@ class mainPage extends StatelessWidget {
 }
 
 // ctl+fn+spaceで提案を表示\\\
-// 検索→小説の詳細を表示するページ作る
 
