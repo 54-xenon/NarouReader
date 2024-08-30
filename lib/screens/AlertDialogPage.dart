@@ -10,7 +10,7 @@ class AlertDiaLogSample extends StatelessWidget {
       // タップでアラートを表示させる
       actions: <Widget>[
         GestureDetector(
-          child: Text("戻る"),
+          child: const Text("戻る"),
           onTap: () {
             Navigator.pop(context);
           },
