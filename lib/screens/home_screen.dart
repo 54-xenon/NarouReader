@@ -32,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('小説を検索'),
+        title: const Text('検索'),
         backgroundColor: Colors.blue,
       ),
       body: Padding(
