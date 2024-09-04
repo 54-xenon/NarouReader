@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: HomeScreen(),
+      // ホーム画面を廃止して直接検索画面へ移動する
     );
   }
 }
