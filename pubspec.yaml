@@ -33,6 +33,7 @@ dependencies:
     sdk: flutter
   http: ^1.2.1
   flutter_riverpod: ^2.5.1-dev9
+  sqflite: 
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
