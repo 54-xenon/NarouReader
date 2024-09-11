@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:naroureader/screens/detailPage.dart';
+import 'package:naroureader/screens/savedList_screen.dart';
 // import 'package:naroureader/screens/AlertDialogPage.dart';
 // アラートは一旦無効化する
 import '../models/novel.dart';
@@ -34,6 +35,27 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: const Text('検索'),
         backgroundColor: Colors.blue,
+      ),
+      drawer: Drawer(
+        child: ListView(
+          children: <Widget>[
+            DrawerHeader(
+              child: Text('Drawe Header'),
+              decoration: BoxDecoration(
+                color: Colors.blue,
+              ),
+            ),
+            ListTile(
+              title: Text('保存リスト'),
+              onTap: () {
+                // savedList_screenに飛ぶ
+                Navigator.push(context, 
+                  MaterialPageRoute(builder: (context) => savedListPage())
+                );
+              },
+            )
+          ],
+        ),
       ),
       body: Padding(
         padding: EdgeInsets.all(16.0),
