@@ -7,6 +7,7 @@ import 'package:naroureader/screens/savedList_screen.dart';
 // アラートは一旦無効化する
 import '../models/novel.dart';
 import '../services/api_survice.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -49,9 +50,8 @@ class _HomeScreenState extends State<HomeScreen> {
               title: Text('保存リスト'),
               onTap: () {
                 // savedList_screenに飛ぶ
-                Navigator.push(context, 
-                  MaterialPageRoute(builder: (context) => savedListPage())
-                );
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => savedListPage()));
               },
             )
           ],
@@ -89,21 +89,42 @@ class _HomeScreenState extends State<HomeScreen> {
                     return ListView.builder(
                       itemCount: novels.length,
                       itemBuilder: (context, index) {
-                        return ListTile(
-                          title: Text(novels[index].title),
-                          subtitle: Text(novels[index].writer), //タイトルを表示
-                          trailing: Text(novels[index].ncode), //リストに右端にあるncodeを表示
-                          onTap: () {
-                            // 詳細画面に遷移するなどの処理
-                            //小説の詳細ページに飛ぶ処理
-                            // showDialog(context: context, builder: (_) {
-                            //   return AlertDiaLogSample();
-                            // });
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => Detailpage(novel: novels[index])),
-                            );
-                          },
+                        return Slidable(
+                          endActionPane: ActionPane(
+                            extentRatio: 0.5,
+                            motion: StretchMotion(),
+                            children: [
+                              SlidableAction(
+                                label: 'Save',
+                                icon: Icons.bookmark_add_outlined,
+                                backgroundColor: Colors.white,
+                                foregroundColor: Colors.blue,
+                                onPressed: (context) {
+                                  print('クリックされた');
+                                },
+                              )
+                            ],
+                          ),
+                          child: ListTile(
+                            title: Text(novels[index].title),
+                            subtitle: Text(novels[index].writer), //タイトルを表示
+                            trailing:
+                                Text(novels[index].ncode), //リストに右端にあるncodeを表示
+
+                            onTap: () {
+                              // 詳細画面に遷移するなどの処理
+                              //小説の詳細ページに飛ぶ処理
+                              // showDialog(context: context, builder: (_) {
+                              //   return AlertDiaLogSample();
+                              // });
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        Detailpage(novel: novels[index])),
+                              );
+                            },
+                          ),
                         );
                       },
                     );
@@ -117,4 +138,3 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-
