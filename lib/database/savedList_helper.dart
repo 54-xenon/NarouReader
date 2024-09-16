@@ -1,0 +1,4 @@
+// データベースヘルパー
+class DatabaseHelper {
+
+}
