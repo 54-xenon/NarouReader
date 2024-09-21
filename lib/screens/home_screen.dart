@@ -1,6 +1,8 @@
 // lib/screens/home_screen.dart
 
 import 'package:flutter/material.dart';
+import 'package:naroureader/database/savedList_modell.dart';
+import 'package:naroureader/database/savedList_helper.dart';
 import 'package:naroureader/screens/detailPage.dart';
 import 'package:naroureader/screens/savedList_screen.dart';
 // import 'package:naroureader/screens/AlertDialogPage.dart';
@@ -10,11 +12,14 @@ import '../services/api_survice.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
 class HomeScreen extends StatefulWidget {
+  
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final DatabaseHelper dbHelper = DatabaseHelper();
+
   final TextEditingController _controller = TextEditingController();
   late Future<List<Novel>> futureNovels;
 
@@ -47,7 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             ListTile(
-              title: Text('保存リスト'),
+              title: const Text('保存リスト'),
               onTap: () {
                 // savedList_screenに飛ぶ
                 Navigator.push(context,
@@ -90,6 +95,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       itemCount: novels.length,
                       itemBuilder: (context, index) {
                         return Slidable(
+                          // iOS風のスライダー
                           endActionPane: ActionPane(
                             extentRatio: 0.5,
                             motion: StretchMotion(),
@@ -97,10 +103,17 @@ class _HomeScreenState extends State<HomeScreen> {
                               SlidableAction(
                                 label: 'Save',
                                 icon: Icons.bookmark_add_outlined,
-                                backgroundColor: Colors.white,
-                                foregroundColor: Colors.blue,
-                                onPressed: (context) {
-                                  print('クリックされた');
+                                backgroundColor: Colors.blue,
+                                foregroundColor: Colors.white,
+                                onPressed: (context) async {
+                                  // print('クリックされた');
+                                  // 新しいデータを挿入
+                                  await dbHelper.insertItem(Item(
+                                    title: novels[index].title,
+                                    ncode: novels[index].ncode,
+                                    story: novels[index].story,
+                                    // date: date,
+                                    ));
                                 },
                               )
                             ],

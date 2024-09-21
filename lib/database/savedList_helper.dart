@@ -36,7 +36,7 @@ class DatabaseHelper {
         title TEXT,
         ncode TEXT,
         story TEXT,
-        date TEXT
+
       )
       '''
     );
@@ -79,3 +79,4 @@ class DatabaseHelper {
     );
   }
 }
+
