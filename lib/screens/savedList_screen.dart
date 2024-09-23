@@ -49,6 +49,9 @@ class _savedListPageState extends State<savedListPage> {
                       Text('Story: ${item.story}'),
                     ],
                   ),
+                  onTap: () {
+                    print("タップした");  // 確認用
+                  },
                 );
               },
             );
