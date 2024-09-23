@@ -1,18 +1,23 @@
 // lib/screens/home_screen.dart
 
 import 'package:flutter/material.dart';
+import 'package:naroureader/database/savedList_modell.dart';
+import 'package:naroureader/database/savedList_helper.dart';
 import 'package:naroureader/screens/detailPage.dart';
-// import 'package:naroureader/screens/AlertDialogPage.dart';
-// アラートは一旦無効化する
+import 'package:naroureader/screens/savedList_screen.dart';
 import '../models/novel.dart';
 import '../services/api_survice.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 
 class HomeScreen extends StatefulWidget {
+  
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final DatabaseHelper dbHelper = DatabaseHelper();
+
   final TextEditingController _controller = TextEditingController();
   late Future<List<Novel>> futureNovels;
 
@@ -34,6 +39,26 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: const Text('検索'),
         backgroundColor: Colors.blue,
+      ),
+      drawer: Drawer(
+        child: ListView(
+          children: <Widget>[
+            DrawerHeader(
+              child: Text('Drawe Header'),
+              decoration: BoxDecoration(
+                color: Colors.blue,
+              ),
+            ),
+            ListTile(
+              title: const Text('保存リスト'),
+              onTap: () {
+                // savedList_screenに飛ぶ
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => savedListPage()));
+              },
+            )
+          ],
+        ),
       ),
       body: Padding(
         padding: EdgeInsets.all(16.0),
@@ -67,21 +92,50 @@ class _HomeScreenState extends State<HomeScreen> {
                     return ListView.builder(
                       itemCount: novels.length,
                       itemBuilder: (context, index) {
-                        return ListTile(
-                          title: Text(novels[index].title),
-                          subtitle: Text(novels[index].writer), //タイトルを表示
-                          trailing: Text(novels[index].ncode), //リストに右端にあるncodeを表示
-                          onTap: () {
-                            // 詳細画面に遷移するなどの処理
-                            //小説の詳細ページに飛ぶ処理
-                            // showDialog(context: context, builder: (_) {
-                            //   return AlertDiaLogSample();
-                            // });
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => Detailpage(novel: novels[index])),
-                            );
-                          },
+                        return Slidable(
+                          // iOS風のスライダー
+                          endActionPane: ActionPane(
+                            extentRatio: 0.5,
+                            motion: StretchMotion(),
+                            children: [
+                              SlidableAction(
+                                label: 'Save',
+                                icon: Icons.bookmark_add_outlined,
+                                backgroundColor: Colors.blue,
+                                foregroundColor: Colors.white,
+                                onPressed: (context) async {
+                                  // print('クリックされた');
+                                  // 新しいデータを挿入
+                                  await dbHelper.insertItem(Item(
+                                    title: novels[index].title,
+                                    ncode: novels[index].ncode,
+                                    story: novels[index].story,
+                                    // date: date,
+                                    ));
+                                },
+                              )
+                            ],
+                          ),
+                          child: ListTile(
+                            title: Text(novels[index].title),
+                            subtitle: Text(novels[index].writer), //タイトルを表示
+                            trailing:
+                                Text(novels[index].ncode), //リストに右端にあるncodeを表示
+
+                            onTap: () {
+                              // 詳細画面に遷移するなどの処理
+                              //小説の詳細ページに飛ぶ処理
+                              // showDialog(context: context, builder: (_) {
+                              //   return AlertDiaLogSample();
+                              // });
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        Detailpage(novel: novels[index])),
+                              );
+                            },
+                          ),
                         );
                       },
                     );
@@ -95,4 +149,3 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-
