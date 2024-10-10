@@ -19,6 +19,15 @@ class _savedListPageState extends State<savedListPage> {
       appBar: AppBar(
         title: const Text('保存リスト'),
         backgroundColor: Colors.blue,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.delete),
+            onPressed: () {
+              // 昨日しているかの検証
+              print("ボタンが押された");
+            },
+          )
+        ],
       ),
       body: FutureBuilder<List<Item>>(
         future: dbHelper.getItems(),
