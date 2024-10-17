@@ -19,6 +19,35 @@ class _savedListPageState extends State<savedListPage> {
       appBar: AppBar(
         title: const Text('保存リスト'),
         backgroundColor: Colors.blue,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.delete),
+            onPressed: () async{
+              final confirm = await showDialog(
+                context: context,
+                builder: (context) => AlertDialog(
+                  title: const Text('全てのデータを削除しますか？'),
+                  content: Text('are you sure you want to delete all items?'),
+                  actions: [
+                    TextButton(
+                      child: Text('キャンセル'),
+                      onPressed: () => Navigator.pop(context, false),
+                    ),
+                    TextButton(
+                      child: Text('delete'),
+                      onPressed: () => Navigator.pop(context, true),
+                    ),
+                  ],
+                )
+              );
+              // ユーザーがdeleteをタプした場合の処理(turweの場合)
+              if (confirm == true) {
+                await dbHelper.deleteAllItems();
+                (context as Element).reassemble();
+              }
+            },
+          ),
+        ],
       ),
       body: FutureBuilder<List<Item>>(
         future: dbHelper.getItems(),
@@ -49,6 +78,9 @@ class _savedListPageState extends State<savedListPage> {
                       Text('Story: ${item.story}'),
                     ],
                   ),
+                  onTap: () {
+                    print("タップした");  // 確認用
+                  },
                 );
               },
             );
