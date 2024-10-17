@@ -22,11 +22,31 @@ class _savedListPageState extends State<savedListPage> {
         actions: [
           IconButton(
             icon: const Icon(Icons.delete),
-            onPressed: () {
-              // 昨日しているかの検証
-              print("ボタンが押された");
+            onPressed: () async{
+              final confirm = await showDialog(
+                context: context,
+                builder: (context) => AlertDialog(
+                  title: const Text('全てのデータを削除しますか？'),
+                  content: Text('are you sure you want to delete all items?'),
+                  actions: [
+                    TextButton(
+                      child: Text('キャンセル'),
+                      onPressed: () => Navigator.pop(context, false),
+                    ),
+                    TextButton(
+                      child: Text('delete'),
+                      onPressed: () => Navigator.pop(context, true),
+                    ),
+                  ],
+                )
+              );
+              // ユーザーがdeleteをタプした場合の処理(turweの場合)
+              if (confirm == true) {
+                await dbHelper.deleteAllItems();
+                (context as Element).reassemble();
+              }
             },
-          )
+          ),
         ],
       ),
       body: FutureBuilder<List<Item>>(

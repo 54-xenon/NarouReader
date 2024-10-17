@@ -1,4 +1,5 @@
 // database/database_helper.dart
+
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 import '../database/savedList_modell.dart';
@@ -30,15 +31,16 @@ class DatabaseHelper {
   // データベースのテーブル作成
   Future _onCreate(Database db, int version) async {
     await db.execute(
-      '''
+        // データテーブル
+        // 項目の一番最後はカンマを付けないようにする(コンソールにエラーが出る)
+        '''
       CREATE TABLE items (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         title TEXT,
         ncode TEXT,
         story TEXT
       )
-      '''
-    );
+      ''');
   }
 
   // データを挿入
@@ -77,5 +79,11 @@ class DatabaseHelper {
       whereArgs: [id],
     );
   }
-}
 
+  // 全てのデータを削除するメソッド
+  Future<int> deleteAllItems() async {
+    final db = await database;
+    return await db.delete('items');
+  }
+
+}
