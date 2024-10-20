@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:naroureader/database/savedList_helper.dart';
+import 'package:naroureader/screens/savedlistscreen_detailPage.dart';
 import '../database/savedList_modell.dart';
 
 
@@ -75,13 +76,15 @@ class _savedListPageState extends State<savedListPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text('Ncode: ${item.ncode}'),
-                      Text('Story: ${item.story}'),
+                      // Text('Story: ${item.story}'),
+                      // リストが見づらくなってしまうdので一旦向こうか
                     ],
                   ),
                   onTap: () {
-                    print("タップした");  // 確認用
-                    // タップで小説の詳細情報を表示するようにする
-                    
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => listDetailPage(item:item))
+                    );
                   },
                 );
               },

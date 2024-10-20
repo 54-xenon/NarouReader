@@ -5,11 +5,13 @@ class Item {
   final String ncode;  // 小説コード
   final String story;  // 小説のあらすじ
 
+
   Item({
     this.id,
     required this.title,
     required this.ncode,
     required this.story,
+
   });
 
   // MapからItemオブジェクトを作成
@@ -19,6 +21,7 @@ class Item {
       title: map['title'],
       ncode: map['ncode'],
       story: map['story'],
+
     );
   }
 
@@ -29,6 +32,7 @@ class Item {
       'title': title,
       'ncode': ncode,
       'story': story,
+
     };
   }
 }
