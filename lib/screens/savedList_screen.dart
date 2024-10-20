@@ -80,6 +80,8 @@ class _savedListPageState extends State<savedListPage> {
                   ),
                   onTap: () {
                     print("タップした");  // 確認用
+                    // タップで小説の詳細情報を表示するようにする
+                    
                   },
                 );
               },
