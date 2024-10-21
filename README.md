@@ -23,7 +23,7 @@ URL(https://dev.syosetu.com/man/api/#link6)
 - 作品の検索
 - 作品の詳細情報(タイトル、著者名、storyなど)
 # まもなく利用可能
-- ブックマーク機能
+- ブックマーク機能(新たに詳細画面の追加)
 # このアプリで実装したい機能
 issueにこれから実装する予定が置いてあります。
 # バグ報告とか
@@ -42,6 +42,8 @@ lib/
     └── home_screen.dart
     └── detailPage.dart
     └──sacedListPage.dart
+    └──savedlistscreen_detailPage.dart
+
 
 
 
