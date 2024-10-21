@@ -1,27 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:naroureader/providers/theme_provider.dart';
 import 'package:naroureader/screens/home_screen.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() {
-  runApp(
-    const ProviderScope(  //Providerの範囲をMyAppにすることで全てに適応
-      child: MyApp(),
-    )
-  );
+  runApp(ProviderScope(child: MyApp()));
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
+class MyApp extends ConsumerWidget {
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final themeMode = ref.watch(themeNotifierProvider);  // テーマモードを監視
+
     return MaterialApp(
-      home: HomeScreen(),
-      // ホーム画面を廃止して直接検索画面へ移動する
+      title: 'Flutter Dark Mode',
+      theme: ThemeData.light(),  // ライトテーマの定義
+      darkTheme: ThemeData.dark(),  // ダークテーマの定義
+      themeMode: themeMode,  // 監視したテーマモードを適用
+      home: HomeScreen(),  // 最初に表示する画面
     );
   }
 }
-
-
 // ctl+fn+spaceで提案を表示\\\
-

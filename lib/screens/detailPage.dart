@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:naroureader/models/novel.dart';
 
+
 class Detailpage extends StatelessWidget {
-  
   final Novel novel;
   Detailpage({required this.novel});
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       appBar: AppBar(
         title: const Text("詳細ページ"),
         backgroundColor: Colors.blue,
       ),
-      body: SingleChildScrollView(  //SingleChildScrollViewでListView以外でもスクロールできるようになる
+      body: SingleChildScrollView(
+        //SingleChildScrollViewでListView以外でもスクロールできるようになる
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -22,7 +23,9 @@ class Detailpage extends StatelessWidget {
               'Title: ${novel.title}',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 16,),
+            SizedBox(
+              height: 16,
+            ),
             SelectableText(
               'Author: ${novel.writer}',
               style: TextStyle(fontSize: 18),
@@ -42,7 +45,6 @@ class Detailpage extends StatelessWidget {
               'Story: ${novel.story}',
               style: TextStyle(fontSize: 18),
             ),
-
           ],
         ),
       ),

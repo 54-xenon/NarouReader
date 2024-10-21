@@ -1,10 +1,13 @@
 // lib/screens/home_screen.dart
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:naroureader/database/savedList_modell.dart';
 import 'package:naroureader/database/savedList_helper.dart';
+import 'package:naroureader/providers/theme_provider.dart';
 import 'package:naroureader/screens/detailPage.dart';
 import 'package:naroureader/screens/savedList_screen.dart';
+import 'package:naroureader/screens/savedlistscreen_detailPage.dart';
 import '../models/novel.dart';
 import '../services/api_survice.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
@@ -39,6 +42,19 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: const Text('検索'),
         backgroundColor: Colors.blue,
+        actions: [
+          Consumer(
+            builder: (context, ref, child) {
+                final themeMode = ref.watch(themeNotifierProvider) ?? ThemeMode.light; // ここでnull対策
+              IconButton(
+                icon: Icon(ThemeMode == ThemeMode.light ? Icons.dark_mode : Icons.light_mode),
+                onPressed: () {
+                  ref.read(themeNotifierProvider.notifier).toggleTheme();  // テーマ切り替え
+                },
+              );
+            },
+          )
+        ],
       ),
       drawer: Drawer(
         child: ListView(
