@@ -16,3 +16,5 @@ class ThemeNotifier extends StateNotifier<ThemeMode> {
 final themeNotifierProvider = StateNotifierProvider<ThemeNotifier, ThemeMode>(
   (ref) => ThemeNotifier(),
 );
+
+// ダークモードの状態管理

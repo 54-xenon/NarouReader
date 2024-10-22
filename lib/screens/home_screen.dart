@@ -58,16 +58,12 @@ class _HomeScreenState extends State<HomeScreen> {
           )
         ],
       ),
+      // サードバー
       drawer: Drawer(
         child: ListView(
           children: <Widget>[
-            DrawerHeader(
-              child: Text('Drawer Header'),
-              decoration: BoxDecoration(
-                color: Colors.blue,
-              ),
-            ),
             ListTile(
+              leading: const Icon(Icons.list),
               title: const Text('保存リスト'),
               onTap: () {
                 // savedList_screenに飛ぶ
