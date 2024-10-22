@@ -1,5 +1,3 @@
-// lib/screens/home_screen.dart
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:naroureader/database/savedList_modell.dart';
@@ -13,7 +11,6 @@ import '../services/api_survice.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
 class HomeScreen extends StatefulWidget {
-  
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
@@ -45,11 +42,16 @@ class _HomeScreenState extends State<HomeScreen> {
         actions: [
           Consumer(
             builder: (context, ref, child) {
-                final themeMode = ref.watch(themeNotifierProvider) ?? ThemeMode.light; // ここでnull対策
-              IconButton(
-                icon: Icon(ThemeMode == ThemeMode.light ? Icons.dark_mode : Icons.light_mode),
+              final themeMode = ref.watch(themeNotifierProvider) ?? ThemeMode.light; // ここでnull対策
+              return IconButton(  // return を追加
+                icon: Icon(themeMode == ThemeMode.light ? Icons.dark_mode : Icons.light_mode),
                 onPressed: () {
-                  ref.read(themeNotifierProvider.notifier).toggleTheme();  // テーマ切り替え
+                  try {
+                    ref.read(themeNotifierProvider.notifier).toggleTheme();
+                  } catch (a) {
+                    print('Error');
+                    throw Exception('theme toggle failed');
+                  }
                 },
               );
             },
@@ -60,7 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: ListView(
           children: <Widget>[
             DrawerHeader(
-              child: Text('Drawe Header'),
+              child: Text('Drawer Header'),
               decoration: BoxDecoration(
                 color: Colors.blue,
               ),
@@ -69,8 +71,10 @@ class _HomeScreenState extends State<HomeScreen> {
               title: const Text('保存リスト'),
               onTap: () {
                 // savedList_screenに飛ぶ
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => savedListPage()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => savedListPage()));
               },
             )
           ],
@@ -120,15 +124,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                 backgroundColor: Colors.blue,
                                 foregroundColor: Colors.white,
                                 onPressed: (context) async {
-                                  // print('クリックされた');
                                   // 新しいデータを挿入
                                   await dbHelper.insertItem(Item(
                                     title: novels[index].title,
                                     ncode: novels[index].ncode,
                                     story: novels[index].story,
-
-                                    // date: date,
-                                    ));
+                                  ));
                                 },
                               )
                             ],
@@ -136,15 +137,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: ListTile(
                             title: Text(novels[index].title),
                             subtitle: Text(novels[index].writer), //タイトルを表示
-                            trailing:
-                                Text(novels[index].ncode), //リストに右端にあるncodeを表示
-
+                            trailing: Text(novels[index].ncode), //リストに右端にあるncodeを表示
                             onTap: () {
-                              // 詳細画面に遷移するなどの処理
-                              //小説の詳細ページに飛ぶ処理
-                              // showDialog(context: context, builder: (_) {
-                              //   return AlertDiaLogSample();
-                              // });
+                              // 詳細画面に遷移する処理
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
