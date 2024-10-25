@@ -71,12 +71,12 @@ class DatabaseHelper {
   }
 
   // データを削除
-  Future<int> deleteItem(int id) async {
+  Future<int> deleteItem(String ncode) async {  //数字ではなく文字なのでString型に修正
     final db = await database;
     return await db.delete(
       'items',
-      where: 'id = ?',
-      whereArgs: [id],
+      where: 'ncode = ?',
+      whereArgs: [ncode],
     );
   }
 

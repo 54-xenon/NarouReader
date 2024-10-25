@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:naroureader/database/savedList_helper.dart';
 import 'package:naroureader/screens/savedlistscreen_detailPage.dart';
@@ -13,8 +15,18 @@ class savedListPage extends StatefulWidget {
 
 class _savedListPageState extends State<savedListPage> {
   final dbHelper = DatabaseHelper();
-  // 
+  List<Item> items = [];
+
   @override
+  void initState() {
+    super.initState();
+    _loadItems();  //初期データをロード
+  }
+
+  Future<void> _loadItems() async{
+    items = await dbHelper.getItems();  //データベースからアイテムを取得
+    setState(() {});  // UIを更新
+  }
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -80,11 +92,18 @@ class _savedListPageState extends State<savedListPage> {
                       // リストが見づらくなってしまうdので一旦向こうか
                     ],
                   ),
-                  onTap: () {
-                    Navigator.push(
+                  onTap: () async{
+                    final result = await Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => listDetailPage(item:item))
+                      MaterialPageRoute(
+                        builder: (context) => listDetailPage(item:  item),
+                      )
                     );
+
+                    if (result == true) {
+                      // 削除が成功した場合、リストを再読み込みする
+                      _loadItems();
+                    }
                   },
                 );
               },
