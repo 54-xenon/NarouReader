@@ -5,7 +5,6 @@ import 'package:naroureader/database/savedList_helper.dart';
 import 'package:naroureader/providers/theme_provider.dart';
 import 'package:naroureader/screens/detailPage.dart';
 import 'package:naroureader/screens/savedList_screen.dart';
-import 'package:naroureader/screens/savedlistscreen_detailPage.dart';
 import '../models/novel.dart';
 import '../services/api_survice.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
