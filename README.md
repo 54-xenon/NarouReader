@@ -16,13 +16,13 @@ For help getting started with Flutter development, view the
 samples, guidance on mobile development, and a full API reference.
 # NarouReader(予定)
 なろう小説のアプリ版っぽいものを作っています。実用性というより個人の学習用なので完全に自己満足です。将来的にはApp Storeに出す予定ですか、developerアカウントって高いのでだいぶ先になりそうです。
-このアプリはなろう小説APIを使用しています。
+このアプリはなろう小説APIを使用しています.
 URL(https://dev.syosetu.com/man/api/#link6)
 ↑公式ドキュメント
-# このアプリで実装した機能
-- 作品の検索
+なお、Androidスマホ実機で検証はできていないので動作は保証できません。
 - 作品の詳細情報(タイトル、著者名、storyなど)
-- ブックマーク機能
+- ブックマーク機能(削除機能も追加済み)
+これらの機能が実装されています。NarouReaderから直接サイトに飛ぶ機能は実装されていません。
 # このアプリで実装したい機能
 issueにこれから実装する予定が置いてあります。
 # バグ報告とか
