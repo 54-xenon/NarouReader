@@ -1,4 +1,4 @@
-# naroureader
+# NarouReader
 
 A new Flutter project.
 
