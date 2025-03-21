@@ -1,48 +1,47 @@
-# naroureader
+# NarouReader
 
-A new Flutter project.
+NarouReader is an application designed to read "Narou" novels using the Narou API. This project serves as a personal learning experience and is intended for self-satisfaction. While there is a future goal to release it on the App Store, this may take some time due to the cost of a developer account. Note that the app has not been tested on Android devices, so its functionality on such devices is not guaranteed.
+--- 
+NarouReaderは、Narou APIを使用して「Narou」小説を読むためのアプリケーションです。このプロジェクトは個人的な学習体験として設計されており、自己満足のためのものです。将来的にはApp Storeでのリリースを目指していますが、デベロッパーアカウントのコストのため、リリースまでには時間がかかるかもしれません。なお、このアプリはAndroidデバイスでのテストが行われていないため、動作は保証されていません。
+
+## Features
+
+- **Retrieve Novel Details**: Get detailed information about novels, such as titles and author names, using the Narou API.
+- **Bookmark Functionality**: Save your favorite novels for easy access later.
+- **Planned Features**: For upcoming features, please check the issues section.
 
 ## Getting Started
 
 This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+### Resources to Get You Started
 
 - [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
 - [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- For help with Flutter development, view the [online documentation](https://docs.flutter.dev/), which offers tutorials, samples, guidance on mobile development, and a full API reference.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# NarouReader(予定)
-なろう小説のアプリ版っぽいものを作っています。実用性というより個人の学習用なので完全に自己満足です。将来的にはApp Storeに出す予定ですか、developerアカウントって高いのでだいぶ先になりそうです。
-このアプリはなろう小説APIを使用しています.
-URL(https://dev.syosetu.com/man/api/#link6)
-↑公式ドキュメント
-なお、Androidスマホ実機で検証はできていないので動作は保証できません。
-- 作品の詳細情報(タイトル、著者名、storyなど)
-- ブックマーク機能(削除機能も追加済み)
-これらの機能が実装されています。NarouReaderから直接サイトに飛ぶ機能は実装されていません。
-# このアプリで実装したい機能
-issueにこれから実装する予定が置いてあります。
-# バグ報告とか
-もし、バグや不具合の報告、その他ご要望はissueを立てていただくとありがたいです。
-# ディレクトリのメモ
+## Directory Structure
+
+```
 lib/
 ├── main.dart
-├──database/
-    └── savedList_model.dart
-    └── savedList_helper.dart
-├── models/
+├── database/
 │   └── post.dart
 ├── services/
 │   └── api_service.dart
 └── screens/
-    └── home_screen.dart
-    └── detailPage.dart
-    └──sacedListPage.dart
-    └──savedlistscreen_detailPage.dart
+    ├── home_screen.dart
+    ├── detailPage.dart
+    ├── savedListPage.dart
+    └── savedlistscreen_detailPage.dart
+```
 
+## Bug Reports and Requests
 
+If you encounter any bugs or have requests, please create an issue in the repository. 
 
+## Notes
 
+- This application uses the Narou API.
+- Direct linking to the site from NarouReader is not implemented.
+- Verification on Android devices is not guaranteed.

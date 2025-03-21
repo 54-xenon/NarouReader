@@ -31,7 +31,7 @@ class _savedListPageState extends State<savedListPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('保存リスト'),
-        backgroundColor: Colors.blue,
+        elevation: 1,
         actions: [
           IconButton(
             icon: const Icon(Icons.delete),
@@ -66,7 +66,7 @@ class _savedListPageState extends State<savedListPage> {
         future: dbHelper.getItems(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(
+            return const Center(
               child: CircularProgressIndicator(),
             );
           } else if (snapshot.hasError) {
@@ -74,7 +74,7 @@ class _savedListPageState extends State<savedListPage> {
               child: Text('Error: ${snapshot.error}'),
             );
           } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-            return Center(
+            return const Center(
               child: Text('No items found.'),
             );
           } else {

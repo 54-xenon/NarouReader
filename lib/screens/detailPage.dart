@@ -1,16 +1,47 @@
 import 'package:flutter/material.dart';
+import 'package:naroureader/database/savedList_modell.dart';
 import 'package:naroureader/models/novel.dart';
+import '../database/savedList_helper.dart';
 
 
-class Detailpage extends StatelessWidget {
+class Detailpage extends StatefulWidget {
   final Novel novel;
   Detailpage({required this.novel});
+
+  @override
+  State<Detailpage> createState() => _DetailpageState();
+}
+
+class _DetailpageState extends State<Detailpage> {
+  final DatabaseHelper dbHelper = DatabaseHelper();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text("詳細ページ"),
         elevation: 1,
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () async{
+          // flutter_slidableと同じDBに小説を保存する
+          await dbHelper.insertItem(Item(
+            title: widget.novel.title,
+            ncode: widget.novel.ncode,
+            story: widget.novel.story,
+          ));
+          if (dbHelper != null) {
+            const _snackbar = SnackBar(
+              content: Text("正常に保存することができました"),
+            );
+            ScaffoldMessenger.of(context).showSnackBar(_snackbar);
+          } else {
+            const _faildMessege = SnackBar(
+              content: Text("もう一度試してください"),
+            );
+            ScaffoldMessenger.of(context).showSnackBar(_faildMessege);
+          }
+        },
+        child: const Icon(Icons.add),
       ),
       body: SingleChildScrollView(
         //SingleChildScrollViewでListView以外でもスクロールできるようになる
@@ -20,27 +51,27 @@ class Detailpage extends StatelessWidget {
           children: <Widget>[
             // SelectableTextでwidget内のテキストをコピーすることができる
             SelectableText(
-              'Title: ${novel.title}',
+              'Title: ${widget.novel.title}',
               style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 16),
             SelectableText(
-              'Author: ${novel.writer}',
+              'Author: ${widget.novel.writer}',
               style: TextStyle(fontSize: 18),
             ),
             const SizedBox(height: 16),
             SelectableText(
-              'URL: https://ncode.syssetu.com${novel.ncode}',
+              'URL: https://ncode.syssetu.com${widget.novel.ncode}',
               style: const TextStyle(fontSize: 18),
             ),
             const SizedBox(height: 16),
             SelectableText(
-              'ncode: ${novel.ncode}',
+              'ncode: ${widget.novel.ncode}',
               style: TextStyle(fontSize: 18),
             ),
             const SizedBox(height: 16),
             SelectableText(
-              'Story: ${novel.story}',
+              'Story: ${widget.novel.story}',
               style: TextStyle(fontSize: 18),
             ),
           ],

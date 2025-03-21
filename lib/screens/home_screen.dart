@@ -111,11 +111,11 @@ class _HomeScreenState extends State<HomeScreen> {
                           // iOS風のスライダー
                           endActionPane: ActionPane(
                             extentRatio: 0.5,
-                            motion: StretchMotion(),
+                            motion: const StretchMotion(),
                             children: [
                               SlidableAction(
                                 label: 'Save',
-                                icon: Icons.bookmark_add_outlined,
+                                icon: Icons.bookmark_add,
                                 backgroundColor: Colors.blue,
                                 foregroundColor: Colors.white,
                                 onPressed: (context) async {

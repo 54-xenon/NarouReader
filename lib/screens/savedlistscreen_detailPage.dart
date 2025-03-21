@@ -12,10 +12,10 @@ class listDetailPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('詳細ページ'),
-        backgroundColor: Colors.blue,
+        elevation: 1,
         actions: [
           IconButton(
-            icon: Icon(Icons.delete),
+            icon: const Icon(Icons.delete),
             onPressed: () async {
               final confim = await showDialog(
                 context: context,
