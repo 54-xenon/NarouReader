@@ -97,11 +97,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 future: futureNovels,
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    return Center(child: CircularProgressIndicator());
+                    return const Center(child: CircularProgressIndicator());
                   } else if (snapshot.hasError) {
                     return Center(child: Text('エラーが発生しました: ${snapshot.error}'));
                   } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-                    return Center(child: Text('検索結果がありません'));
+                    return const Center(child: Text('検索結果がありません'));
                   } else {
                     List<Novel> novels = snapshot.data!;
                     return ListView.builder(

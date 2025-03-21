@@ -1,8 +1,6 @@
 # NarouReader
 
-NarouReader is an application designed to read "Narou" novels using the Narou API. This project serves as a personal learning experience and is intended for self-satisfaction. While there is a future goal to release it on the App Store, this may take some time due to the cost of a developer account. Note that the app has not been tested on Android devices, so its functionality on such devices is not guaranteed.
---- 
-NarouReaderは、Narou APIを使用して「Narou」小説を読むためのアプリケーションです。このプロジェクトは個人的な学習体験として設計されており、自己満足のためのものです。将来的にはApp Storeでのリリースを目指していますが、デベロッパーアカウントのコストのため、リリースまでには時間がかかるかもしれません。なお、このアプリはAndroidデバイスでのテストが行われていないため、動作は保証されていません。
+NarouReader is an application designed to read Narou novels using the Narou API. this project serves as a personal learing experience and is intemded for self-satisfaction. While there is a future goal to release it on the App Store, this may take some time duee to the cost of a developer account. Note that the app has not been tested on Android devisces, so its fuctioality on such devices is not graranteed. 
 
 ## Features
 

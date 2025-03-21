@@ -53,15 +53,15 @@ class listDetailPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             SelectableText(
-              'Title: ${item.title}',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              item.title,
+              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             SelectableText(
               'Ncode: ${item.ncode}',
-              style: TextStyle(fontSize: 18),
+              style: const TextStyle(fontSize: 18),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             SelectableText(
               'Stoey: ${item.story}',
               style: const TextStyle(fontSize: 18),

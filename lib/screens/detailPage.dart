@@ -30,15 +30,15 @@ class _DetailpageState extends State<Detailpage> {
             story: widget.novel.story,
           ));
           if (dbHelper != null) {
-            const _snackbar = SnackBar(
+            const snackbar = SnackBar(
               content: Text("正常に保存することができました"),
             );
-            ScaffoldMessenger.of(context).showSnackBar(_snackbar);
+            ScaffoldMessenger.of(context).showSnackBar(snackbar);
           } else {
-            const _faildMessege = SnackBar(
+            const faildMessege = SnackBar(
               content: Text("もう一度試してください"),
             );
-            ScaffoldMessenger.of(context).showSnackBar(_faildMessege);
+            ScaffoldMessenger.of(context).showSnackBar(faildMessege);
           }
         },
         child: const Icon(Icons.add),
@@ -51,13 +51,13 @@ class _DetailpageState extends State<Detailpage> {
           children: <Widget>[
             // SelectableTextでwidget内のテキストをコピーすることができる
             SelectableText(
-              'Title: ${widget.novel.title}',
+              widget.novel.title,
               style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 16),
             SelectableText(
               'Author: ${widget.novel.writer}',
-              style: TextStyle(fontSize: 18),
+              style: const TextStyle(fontSize: 18),
             ),
             const SizedBox(height: 16),
             SelectableText(
@@ -67,12 +67,12 @@ class _DetailpageState extends State<Detailpage> {
             const SizedBox(height: 16),
             SelectableText(
               'ncode: ${widget.novel.ncode}',
-              style: TextStyle(fontSize: 18),
+              style: const TextStyle(fontSize: 18),
             ),
             const SizedBox(height: 16),
             SelectableText(
               'Story: ${widget.novel.story}',
-              style: TextStyle(fontSize: 18),
+              style: const TextStyle(fontSize: 18),
             ),
           ],
         ),
