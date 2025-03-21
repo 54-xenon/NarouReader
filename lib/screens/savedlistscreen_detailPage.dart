@@ -64,7 +64,7 @@ class listDetailPage extends StatelessWidget {
             SizedBox(height: 16),
             SelectableText(
               'Stoey: ${item.story}',
-              style: TextStyle(fontSize: 18),
+              style: const TextStyle(fontSize: 18),
             )
           ],
         ),

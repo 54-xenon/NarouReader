@@ -14,6 +14,7 @@ class MyApp extends ConsumerWidget {
 
     return MaterialApp(
       title: 'Flutter Dark Mode',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData.light(),  // ライトテーマの定義
       darkTheme: ThemeData.dark(),  // ダークテーマの定義
       themeMode: themeMode,  // 監視したテーマモードを適用

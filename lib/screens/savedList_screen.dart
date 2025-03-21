@@ -40,14 +40,14 @@ class _savedListPageState extends State<savedListPage> {
                 context: context,
                 builder: (context) => AlertDialog(
                   title: const Text('全てのデータを削除しますか？'),
-                  content: Text('are you sure you want to delete all items?'),
+                  content: const Text('are you sure you want to delete all items?'),
                   actions: [
                     TextButton(
-                      child: Text('キャンセル'),
+                      child: const Text('キャンセル'),
                       onPressed: () => Navigator.pop(context, false),
                     ),
                     TextButton(
-                      child: Text('delete'),
+                      child: const Text('delete'),
                       onPressed: () => Navigator.pop(context, true),
                     ),
                   ],

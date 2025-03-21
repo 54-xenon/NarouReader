@@ -10,7 +10,7 @@ class Detailpage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("詳細ページ"),
-        backgroundColor: Colors.blue,
+        elevation: 1,
       ),
       body: SingleChildScrollView(
         //SingleChildScrollViewでListView以外でもスクロールできるようになる
@@ -21,26 +21,24 @@ class Detailpage extends StatelessWidget {
             // SelectableTextでwidget内のテキストをコピーすることができる
             SelectableText(
               'Title: ${novel.title}',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
-            SizedBox(
-              height: 16,
-            ),
+            const SizedBox(height: 16),
             SelectableText(
               'Author: ${novel.writer}',
               style: TextStyle(fontSize: 18),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             SelectableText(
               'URL: https://ncode.syssetu.com${novel.ncode}',
-              style: TextStyle(fontSize: 18),
+              style: const TextStyle(fontSize: 18),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             SelectableText(
               'ncode: ${novel.ncode}',
               style: TextStyle(fontSize: 18),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             SelectableText(
               'Story: ${novel.story}',
               style: TextStyle(fontSize: 18),
