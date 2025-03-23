@@ -71,6 +71,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     MaterialPageRoute(
                         builder: (context) => savedListPage()));
               },
+            ),
+            const ListTile(
+              leading: Icon(Icons.settings),
+              title: Text("設定"),
             )
           ],
         ),
@@ -130,9 +134,15 @@ class _HomeScreenState extends State<HomeScreen> {
                             ],
                           ),
                           child: ListTile(
-                            title: Text(novels[index].title),
-                            subtitle: Text(novels[index].writer), //タイトルを表示
-                            trailing: Text(novels[index].ncode), //リストに右端にあるncodeを表示
+                            title: Text(
+                              novels[index].title,
+                            ),
+                            subtitle: Text(
+                              novels[index].writer,
+                            ), //タイトルを表示
+                            trailing: Text(
+                              novels[index].ncode,
+                            ), //リストに右端にあるncodeを表示
                             onTap: () {
                               // 詳細画面に遷移する処理
                               Navigator.push(

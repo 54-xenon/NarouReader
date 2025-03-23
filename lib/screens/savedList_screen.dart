@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:naroureader/database/savedList_helper.dart';
 import 'package:naroureader/screens/savedlistscreen_detailPage.dart';
