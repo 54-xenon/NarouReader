@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:naroureader/database/savedList_helper.dart';
 import 'package:naroureader/screens/savedlistscreen_detailPage.dart';
-import '../database/savedList_modell.dart';
+import '../models/savedList_modell.dart';
 
 
 class savedListPage extends StatefulWidget {
@@ -31,35 +31,6 @@ class _savedListPageState extends State<savedListPage> {
       appBar: AppBar(
         title: const Text('保存リスト'),
         elevation: 1,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.delete),
-            onPressed: () async{
-              final confirm = await showDialog(
-                context: context,
-                builder: (context) => AlertDialog(
-                  title: const Text('全てのデータを削除しますか？'),
-                  content: const Text('are you sure you want to delete all items?'),
-                  actions: [
-                    TextButton(
-                      child: const Text('キャンセル'),
-                      onPressed: () => Navigator.pop(context, false),
-                    ),
-                    TextButton(
-                      child: const Text('delete'),
-                      onPressed: () => Navigator.pop(context, true),
-                    ),
-                  ],
-                )
-              );
-              // ユーザーがdeleteをタプした場合の処理(turweの場合)
-              if (confirm == true) {
-                await dbHelper.deleteAllItems();
-                (context as Element).reassemble();
-              }
-            },
-          ),
-        ],
       ),
       body: FutureBuilder<List<Item>>(
         future: dbHelper.getItems(),

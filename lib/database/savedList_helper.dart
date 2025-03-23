@@ -2,7 +2,7 @@
 
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
-import '../database/savedList_modell.dart';
+import '../models/savedList_modell.dart';
 
 class DatabaseHelper {
   static final DatabaseHelper _instance = DatabaseHelper._internal();

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../database/savedList_modell.dart';
+import '../models/savedList_modell.dart';
 import '../database/savedList_helper.dart';
 
 class listDetailPage extends StatelessWidget {
