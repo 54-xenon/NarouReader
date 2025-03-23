@@ -21,7 +21,6 @@ class Item {
       title: map['title'],
       ncode: map['ncode'],
       story: map['story'],
-
     );
   }
 
@@ -32,7 +31,6 @@ class Item {
       'title': title,
       'ncode': ncode,
       'story': story,
-
     };
   }
 }
