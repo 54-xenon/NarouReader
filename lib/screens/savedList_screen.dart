@@ -54,14 +54,8 @@ class _savedListPageState extends State<savedListPage> {
                 final item = snapshot.data![index];
                 return ListTile(
                   title: Text(item.title),
-                  subtitle: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('Ncode: ${item.ncode}'),
+                  trailing: Text(item.ncode),
                       // Text('Story: ${item.story}'),
-                      // リストが見づらくなってしまうdので一旦向こうか
-                    ],
-                  ),
                   onTap: () async{
                     final result = await Navigator.push(
                       context,

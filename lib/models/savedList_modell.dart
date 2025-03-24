@@ -11,7 +11,6 @@ class Item {
     required this.title,
     required this.ncode,
     required this.story,
-
   });
 
   // MapからItemオブジェクトを作成

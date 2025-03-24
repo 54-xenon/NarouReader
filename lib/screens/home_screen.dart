@@ -132,6 +132,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     title: novels[index].title,
                                     ncode: novels[index].ncode,
                                     story: novels[index].story,
+
                                   ));
                                 },
                               )

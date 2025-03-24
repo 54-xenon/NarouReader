@@ -38,7 +38,7 @@ class DatabaseHelper {
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         title TEXT,
         ncode TEXT,
-        story TEXT
+        story TEXT,
       )
       ''');
   }
