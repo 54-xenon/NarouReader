@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:naroureader/database/savedList_modell.dart';
+import 'package:naroureader/models/savedList_modell.dart';
 import 'package:naroureader/models/novel.dart';
 import '../database/savedList_helper.dart';
 

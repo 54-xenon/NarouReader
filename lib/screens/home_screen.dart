@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:naroureader/database/savedList_modell.dart';
+import 'package:naroureader/models/savedList_modell.dart';
 import 'package:naroureader/database/savedList_helper.dart';
 import 'package:naroureader/providers/theme_provider.dart';
 import 'package:naroureader/screens/detailPage.dart';
 import 'package:naroureader/screens/savedList_screen.dart';
+import 'package:naroureader/screens/settings_page.dart';
 import '../models/novel.dart';
 import '../services/api_survice.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
@@ -71,6 +72,13 @@ class _HomeScreenState extends State<HomeScreen> {
                     MaterialPageRoute(
                         builder: (context) => savedListPage()));
               },
+            ),
+            ListTile(
+              leading: const Icon(Icons.settings),
+              title: const Text("設定"),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => SettingsPage()));
+              },
             )
           ],
         ),
@@ -124,15 +132,22 @@ class _HomeScreenState extends State<HomeScreen> {
                                     title: novels[index].title,
                                     ncode: novels[index].ncode,
                                     story: novels[index].story,
+
                                   ));
                                 },
                               )
                             ],
                           ),
                           child: ListTile(
-                            title: Text(novels[index].title),
-                            subtitle: Text(novels[index].writer), //タイトルを表示
-                            trailing: Text(novels[index].ncode), //リストに右端にあるncodeを表示
+                            title: Text(
+                              novels[index].title,
+                            ),
+                            subtitle: Text(
+                              novels[index].writer,
+                            ), //タイトルを表示
+                            trailing: Text(
+                              novels[index].ncode,
+                            ), //リストに右端にあるncodeを表示
                             onTap: () {
                               // 詳細画面に遷移する処理
                               Navigator.push(
