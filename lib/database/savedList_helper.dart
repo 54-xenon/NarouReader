@@ -39,7 +39,7 @@ class DatabaseHelper {
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         title TEXT,
         ncode TEXT,
-        story TEXT,
+        story TEXT
       )
       ''');
   }
@@ -51,7 +51,7 @@ class DatabaseHelper {
       await db.execute('ALTER TABLE items ADD COLUMN writer TEXT;');
     }
   }
-  
+
   // データを挿入
   Future<int> insertItem(Item item) async {
     final db = await database;
