@@ -47,3 +47,15 @@
 	<true/>
 </dict>
 </plist>
+
+<key>LSApplicationQueriesSchemes</key>
+<array>
+    <string>http</string>
+    <string>https</string>
+</array>
+
+<!-- URLの権限を追加 -->
+<key>NSAppTransportSecurity</key>
+<dict>
+    <key>NSAllowsArbitraryLoads</key><true/>
+</dict>

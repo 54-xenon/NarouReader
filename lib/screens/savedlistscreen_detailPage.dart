@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:naroureader/providers/theme_provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../models/savedList_modell.dart';
 import '../database/savedList_helper.dart';
 
@@ -7,6 +9,35 @@ class listDetailPage extends StatelessWidget {
 
   listDetailPage({Key? key, required this.item}) : super(key: key);
   final Item item;
+
+   // URLを開く関数
+  Future<void> _launchUrl(BuildContext context) async {
+    String urlHttp = "https://ncode.syosetu.com/";
+    final Uri _url = Uri.parse(urlHttp + item.ncode);
+
+    try {
+      // URLが開けるか事前チェック
+      if (await canLaunchUrl(_url)) {
+        await launchUrl(_url);
+      } else {
+        // 開けない場合はアラートを表示
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('URLを開けません: $_url'),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
+    } catch (e) {
+      // 例外キャッチ
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('エラーが発生しました: $e'),
+          backgroundColor: Colors.red,
+        ),
+      );
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,6 +77,11 @@ class listDetailPage extends StatelessWidget {
             },
           )
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => _launchUrl(context),
+        child: const Icon(Icons.share_rounded),
+
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
