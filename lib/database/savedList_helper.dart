@@ -23,8 +23,9 @@ class DatabaseHelper {
     String path = join(await getDatabasesPath(), 'my_database.db');
     return openDatabase(
       path,
-      version: 1,
+      version: 2,
       onCreate: _onCreate,
+      onUpgrade: _onUpgrade, // マグレーション対応
     );
   }
 
@@ -43,6 +44,14 @@ class DatabaseHelper {
       ''');
   }
 
+  // データベースのアップグレード処理
+  Future<void> _onUpgrade(Database db, int oldVersion, int newVersion) async {
+    if (oldVersion < 2) {
+      // add a new table and calam
+      await db.execute('ALTER TABLE items ADD COLUMN writer TEXT;');
+    }
+  }
+  
   // データを挿入
   Future<int> insertItem(Item item) async {
     final db = await database;
