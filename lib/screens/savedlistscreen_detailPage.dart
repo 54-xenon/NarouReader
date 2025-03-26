@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:naroureader/providers/theme_provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../models/savedList_modell.dart';
 import '../database/savedList_helper.dart';

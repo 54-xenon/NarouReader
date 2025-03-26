@@ -22,4 +22,5 @@ class MyApp extends ConsumerWidget {
     );
   }
 }
+
 // ctl+fn+spaceで提案を表示

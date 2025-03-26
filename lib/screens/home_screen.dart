@@ -90,7 +90,7 @@ class _HomeScreenState extends State<HomeScreen> {
             TextField(
               controller: _controller,
               decoration: InputDecoration(
-                labelText: 'キーワードを入力',
+                hintText: "キーワードを入力",
                 suffixIcon: IconButton(
                   icon: const Icon(Icons.search),
                   onPressed: () {

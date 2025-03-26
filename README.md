@@ -43,3 +43,10 @@ If you encounter any bugs or have requests, please create an issue in the reposi
 - This application uses the Narou API.
 - Direct linking to the site from NarouReader is not implemented.
 - Verification on Android devices is not guaranteed.
+
+## Public
+- http: ^1.2.1
+- flutter_riverpod: ^2.5.1
+- sqflite
+- flutter_slidable: ^3.1.1
+- url_Lancher: ^6.3.1
