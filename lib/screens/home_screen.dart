@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:naroureader/models/savedList_modell.dart';
 import 'package:naroureader/database/savedList_helper.dart';
 import 'package:naroureader/providers/theme_provider.dart';
+import 'package:naroureader/screens/account_Page.dart';
 import 'package:naroureader/screens/detailPage.dart';
 import '../models/novel.dart';
 import '../services/api_survice.dart';
@@ -39,9 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
         title: const Text('検索'),
         leading: IconButton(
           icon: const Icon(Icons.account_circle),
-          onPressed: () {
-            
-          },
+          onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => AccountPage())),
         ),
         actions: [
           Consumer(
