@@ -4,8 +4,6 @@ import 'package:naroureader/models/savedList_modell.dart';
 import 'package:naroureader/database/savedList_helper.dart';
 import 'package:naroureader/providers/theme_provider.dart';
 import 'package:naroureader/screens/detailPage.dart';
-import 'package:naroureader/screens/savedList_screen.dart';
-import 'package:naroureader/screens/settings_page.dart';
 import '../models/novel.dart';
 import '../services/api_survice.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
@@ -39,6 +37,12 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         elevation: 1,
         title: const Text('検索'),
+        leading: IconButton(
+          icon: const Icon(Icons.account_circle),
+          onPressed: () {
+            
+          },
+        ),
         actions: [
           Consumer(
             builder: (context, ref, child) {
@@ -58,31 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
           )
         ],
       ),
-      // サードバー
-      drawer: Drawer(
-        child: ListView(
-          children: <Widget>[
-            ListTile(
-              leading: const Icon(Icons.list),
-              title: const Text('保存リスト'),
-              onTap: () {
-                // savedList_screenに飛ぶ
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => savedListPage()));
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.settings),
-              title: const Text("設定"),
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => SettingsPage()));
-              },
-            )
-          ],
-        ),
-      ),
+
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
