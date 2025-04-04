@@ -36,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 1,
+        elevation: 0,
         title: const Text('検索'),
         leading: IconButton(
           icon: const Icon(Icons.account_circle),
@@ -66,19 +66,36 @@ class _HomeScreenState extends State<HomeScreen> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            TextField(
-              controller: _controller,
-              decoration: InputDecoration(
-                hintText: "キーワードを入力",
-                suffixIcon: IconButton(
-                  icon: const Icon(Icons.search),
-                  onPressed: () {
-                    _searchNovels(_controller.text);
-                  },
-                ),
+            Container(
+              decoration: const BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color: Color.fromARGB(255, 188, 188, 188),
+                    blurRadius: 10,
+                    spreadRadius: 0.0,
+                  )
+                ]
               ),
-              onSubmitted: _searchNovels,
+              child: TextField(
+                controller: _controller,
+                decoration: InputDecoration(
+                  filled: true,
+                  hintText: "キーワードを入力",
+                  prefixIcon: IconButton(
+                    icon: const Icon(Icons.search),
+                    onPressed: () {
+                      _searchNovels(_controller.text);
+                    },
+                  ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide: BorderSide.none
+                  )
+                ),
+                onSubmitted: _searchNovels,
+              ),
             ),
+            SizedBox(height: 10),
             Expanded(
               child: FutureBuilder<List<Novel>>(
                 future: futureNovels,
@@ -123,9 +140,6 @@ class _HomeScreenState extends State<HomeScreen> {
                             subtitle: Text(
                               novels[index].writer,
                             ), //タイトルを表示
-                            trailing: Text(
-                              novels[index].ncode,
-                            ), //リストに右端にあるncodeを表示
                             onTap: () {
                               // 詳細画面に遷移する処理
                               Navigator.push(
