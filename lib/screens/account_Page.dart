@@ -10,7 +10,7 @@ class AccountPage extends StatelessWidget {
         title: const Text('Account'),
         elevation: 1,
       ),
-      body: Center(
+      body: const Center(
         child: Column(
           children: [
             Text("ローカルアカウント")
