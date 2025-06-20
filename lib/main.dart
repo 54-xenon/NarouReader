@@ -53,6 +53,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
     return Scaffold(
       body: _screens[_selectedIndex],
       bottomNavigationBar: NavigationBar(
+        height: 70,
         onDestinationSelected: (int index) {
           setState(() {
             _selectedIndex = index;

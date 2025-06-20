@@ -36,11 +36,11 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 0,
+        elevation: 1,
         title: const Text('検索'),
         leading: IconButton(
           icon: const Icon(Icons.account_circle),
-          onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => AccountPage())),
+          onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const AccountPage())),
         ),
         actions: [
           Consumer(
@@ -52,7 +52,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   try {
                     ref.read(themeNotifierProvider.notifier).toggleTheme();
                   } catch (a) {
-                    print('Error');
                     throw Exception('theme toggle failed');
                   }
                 },
@@ -95,7 +94,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 onSubmitted: _searchNovels,
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Expanded(
               child: FutureBuilder<List<Novel>>(
                 future: futureNovels,
@@ -120,8 +119,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               SlidableAction(
                                 label: 'Save',
                                 icon: Icons.bookmark_add,
-                                backgroundColor: Colors.blue,
+                                backgroundColor: Colors.grey,
                                 foregroundColor: Colors.white,
+                                borderRadius: BorderRadius.circular(12),
                                 onPressed: (context) async {
                                   // 新しいデータを挿入
                                   await dbHelper.insertItem(Item(
