@@ -48,6 +48,11 @@ class _SettingsPageState extends State<SettingsPage> {
               }
             },
           ),
+          SettingsTile(
+            titleText: "チュートリアルを表示",
+            subtitleText: "使い方と新機能の説明",
+            onPressed: () {},
+          ),
         ],
       ),
     );

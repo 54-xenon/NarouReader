@@ -48,7 +48,8 @@ class _savedListPageState extends State<savedListPage> {
               child: Text('No items found.'),
             );
           } else {
-            return ListView.builder(
+            return ListView.separated(
+              separatorBuilder: (context, index) => const Divider(),
               itemCount: snapshot.data!.length,
               itemBuilder: (context, index) {
                 final item = snapshot.data![index];

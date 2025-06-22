@@ -91,14 +91,15 @@ class listDetailPage extends StatelessWidget {
               item.title,
               style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 20),
             SelectableText(
               'Ncode: ${item.ncode}',
               style: const TextStyle(fontSize: 18),
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 20),
+            const Divider(),
             SelectableText(
-              'Stoey: ${item.story}',
+              item.story,
               style: const TextStyle(fontSize: 18),
             )
           ],
