@@ -29,7 +29,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 context: context,
                 builder: (context) => AlertDialog(
                   title: const Text("全てのデータを削除しますか？"),
-                  content: const Text("are you sure you want delete all items?"),
+                  content: const Text("保存した全てのデータが削除されます。"),
                   actions: [
                     TextButton(
                       onPressed: () => Navigator.pop(context, false),
