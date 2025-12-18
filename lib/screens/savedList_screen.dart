@@ -45,7 +45,7 @@ class _savedListPageState extends State<savedListPage> {
             );
           } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
             return const Center(
-              child: Text('No items found.'),
+              child: Text('保存されたアイテムがありません。'),
             );
           } else {
             return ListView.separated(

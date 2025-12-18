@@ -7,7 +7,7 @@ class AccountPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Account'),
+        title: const Text('ユーザ情報'),
         elevation: 1,
       ),
       body: const Center(
