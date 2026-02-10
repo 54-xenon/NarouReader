@@ -1,23 +1,33 @@
 # NarouReader
 
-NarouReader is a Flutter-based application crafted to read Narou novels. Designed as a personal learning project, the app exists primarily for exploring development techniques and features self-satisfaction. Future roadmap and planned updates may be discussed in the Issues section.
+NarouReader は「小説家になろう」の作品を読むための Flutter アプリです。学習目的の個人プロジェクトとして、Narou API を使ったデータ取得や Flutter の実装パターンを試しています。
 
-## Features
+## 主な機能
 
-- **Retrieve Novel Details**: Access comprehensive details about novels, like titles and author details, via Narou API.
-- **Bookmark Functionality**: Keep track of favorite novels with the handy bookmark feature.
-- **Planned Enhancements**: Check upcoming feature implementations.
+- **作品情報の取得**: タイトルや作者などの情報を Narou API から取得
+- **ブックマーク**: お気に入り作品を保存して一覧で確認
+- **今後の拡張**: 追加予定の機能は Issues で管理
 
-## Getting Started
+## 使い始め方
 
-This repository houses the code for a Flutter application, serving as a launching point especially suited to developers interested in Narou ecosystem workflows.
+### 前提条件
 
-### Resources
+- Flutter SDK
+- 対応プラットフォーム向けの開発環境（Android / iOS / Web など）
 
-- Learn and create a Flutter experience: [Lab-guided steps](https://docs.flutter.dev/get-started/codelab)
-- Curated library for practical experiments: [Cookbook Flutter Samplers](https://docs.flutter.dev/cookbook).   guidance documents additionally accrue detailing both tutorials mobile ecosystem summary +?.
-agnostic docs reference abstractions<-API+refGlobe-reach-compiling mobile Appl Error-aware juncture-api layers technical faq/-studyRoad deep-doneVerify logicViews snapshot found DocExary appendixMiscellaneous feedback@recheckcontrol
-## Directory Structure
+### セットアップ
+
+```bash
+flutter pub get
+```
+
+### 起動
+
+```bash
+flutter run
+```
+
+## ディレクトリ構成
 
 ```
 lib/
@@ -32,3 +42,28 @@ lib/
     ├── savedListPage.dart
     └── savedlistscreen_detailPage.dart
 ```
+
+## 参考リンク
+
+- Flutter 公式チュートリアル: https://docs.flutter.dev/get-started/codelab
+- Flutter Cookbook: https://docs.flutter.dev/cookbook
+
+## 使用パッケージ
+
+### Dependencies
+
+- http
+- flutter_riverpod
+- sqflite
+- flutter_slidable
+- url_launcher
+- cupertino_icons
+
+### Dev Dependencies
+
+- flutter_test
+- flutter_lints
+
+## ライセンス
+
+このリポジトリのライセンス情報は未設定です。必要に応じて追加してください。
