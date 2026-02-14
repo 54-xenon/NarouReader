@@ -1,19 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AccountPage extends StatelessWidget {
   const AccountPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('ユーザ情報'),
+        title: Text(l10n.accountTitle),
         elevation: 1,
       ),
-      body: const Center(
+      body: Center(
         child: Column(
           children: [
-            Text("ローカルアカウント")
+            Text(l10n.localAccount),
           ],
         ),
       ),

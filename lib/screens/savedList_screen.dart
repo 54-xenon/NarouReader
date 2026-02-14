@@ -1,79 +1,72 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:naroureader/database/savedList_helper.dart';
 import 'package:naroureader/screens/savedlistscreen_detailPage.dart';
 import '../models/savedList_modell.dart';
 
-
-class savedListPage extends StatefulWidget {
-  const savedListPage({super.key});
+class SavedListPage extends StatefulWidget {
+  const SavedListPage({super.key});
 
   @override
-  State<savedListPage> createState() => _savedListPageState();
+  State<SavedListPage> createState() => _SavedListPageState();
 }
 
-class _savedListPageState extends State<savedListPage> {
+class _SavedListPageState extends State<SavedListPage> {
   final dbHelper = DatabaseHelper();
-  List<Item> items = [];
+
+  Future<void> _loadItems() async {
+    setState(() {});
+  }
 
   @override
-  void initState() {
-    super.initState();
-    _loadItems();  //初期データをロード
-  }
-
-  Future<void> _loadItems() async{
-    items = await dbHelper.getItems();  //データベースからアイテムを取得
-    setState(() {});  // UIを更新
-  }
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('保存リスト'),
+        title: Text(l10n.savedListTitle),
         elevation: 1,
       ),
       body: FutureBuilder<List<Item>>(
         future: dbHelper.getItems(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          } else if (snapshot.hasError) {
-            return Center(
-              child: Text('Error: ${snapshot.error}'),
-            );
-          } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-            return const Center(
-              child: Text('保存されたアイテムがありません。'),
-            );
-          } else {
-            return ListView.separated(
-              separatorBuilder: (context, index) => const Divider(),
-              itemCount: snapshot.data!.length,
-              itemBuilder: (context, index) {
-                final item = snapshot.data![index];
-                return ListTile(
-                  title: Text(item.title),
-                  trailing: Text(item.ncode),
-                      // Text('Story: ${item.story}'),
-                  onTap: () async{
-                    final result = await Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => listDetailPage(item:  item),
-                      )
-                    );
+            return const Center(child: CircularProgressIndicator());
+          }
 
-                    if (result == true) {
-                      // 削除が成功した場合、リストを再読み込みする
-                      _loadItems();
-                    }
-                  },
-                );
-              },
+          if (snapshot.hasError) {
+            return Center(
+              child: Text(l10n.savedListError(snapshot.error.toString())),
             );
           }
+
+          if (!snapshot.hasData || snapshot.data!.isEmpty) {
+            return Center(child: Text(l10n.savedListEmpty));
+          }
+
+          return ListView.separated(
+            separatorBuilder: (context, index) => const Divider(),
+            itemCount: snapshot.data!.length,
+            itemBuilder: (context, index) {
+              final item = snapshot.data![index];
+              return ListTile(
+                title: Text(item.title),
+                trailing: Text(item.ncode),
+                onTap: () async {
+                  final result = await Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => SavedListDetailPage(item: item),
+                    ),
+                  );
+
+                  if (result == true) {
+                    _loadItems();
+                  }
+                },
+              );
+            },
+          );
         },
       ),
     );
