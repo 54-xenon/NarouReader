@@ -73,7 +73,8 @@ class SavedListDetailPage extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => _launchUrl(context),
-        child: const Icon(Icons.share_rounded),
+        child: const Icon(Icons.open_in_browser),
+
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
