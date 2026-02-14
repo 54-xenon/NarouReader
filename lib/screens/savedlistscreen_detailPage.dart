@@ -1,86 +1,79 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:url_launcher/url_launcher.dart';
-import '../models/savedList_modell.dart';
 import '../database/savedList_helper.dart';
+import '../models/savedList_modell.dart';
 
-class listDetailPage extends StatelessWidget {
+class SavedListDetailPage extends StatelessWidget {
+  SavedListDetailPage({super.key, required this.item});
+
   final dbHelper = DatabaseHelper();
-
-  listDetailPage({Key? key, required this.item}) : super(key: key);
   final Item item;
 
-   // URLを開く関数
   Future<void> _launchUrl(BuildContext context) async {
-    String urlHttp = "https://ncode.syosetu.com/";
-    final Uri _url = Uri.parse(urlHttp + item.ncode);
+    final l10n = AppLocalizations.of(context);
+    final uri = Uri.parse('https://ncode.syosetu.com/${item.ncode}');
 
-    try {
-      // URLが開けるか事前チェック
-      if (await canLaunchUrl(_url)) {
-        await launchUrl(_url);
-      } else {
-        // 開けない場合はアラートを表示
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('URLを開けません: $_url'),
-            backgroundColor: Colors.red,
-          ),
-        );
-      }
-    } catch (e) {
-      // 例外キャッチ
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text('エラーが発生しました: $e'),
-          backgroundColor: Colors.red,
-        ),
-      );
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri);
+      return;
     }
+
+    if (!context.mounted) {
+      return;
+    }
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(l10n.openUrlFailed(uri.toString())),
+        backgroundColor: Colors.red,
+      ),
+    );
   }
+
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('詳細ページ'),
+        title: Text(l10n.detailTitle),
         elevation: 1,
         actions: [
           IconButton(
             icon: const Icon(Icons.delete),
             onPressed: () async {
-              final confim = await showDialog(
+              final confirm = await showDialog<bool>(
                 context: context,
                 builder: (context) => AlertDialog(
-                  title: const Text('このアイテムを削除しますか?'),
-                  content: const Text('このアイテムは削除されます'),
+                  title: Text(l10n.savedItemDeleteConfirmTitle),
+                  content: Text(l10n.savedItemDeleteConfirmContent),
                   actions: [
                     TextButton(
-                      child: const Text('キャンセル'),
-                      onPressed: () {
-                        Navigator.pop(context, false);
-                      },
+                      child: Text(l10n.cancel),
+                      onPressed: () => Navigator.pop(context, false),
                     ),
                     TextButton(
-                      child: const Text('削除'),
-                      onPressed: () {
-                        Navigator.pop(context, true);
-                      },
-                    )
+                      child: Text(l10n.delete),
+                      onPressed: () => Navigator.pop(context, true),
+                    ),
                   ],
                 ),
               );
-              if (confim == true) {
-                await dbHelper.deleteItem(item.ncode);
-                Navigator.pop(context, true);
 
+              if (confirm == true) {
+                await dbHelper.deleteItem(item.ncode);
+                if (context.mounted) {
+                  Navigator.pop(context, true);
+                }
               }
             },
-          )
+          ),
         ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => _launchUrl(context),
         child: const Icon(Icons.share_rounded),
-
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
@@ -93,7 +86,7 @@ class listDetailPage extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             SelectableText(
-              'Ncode: ${item.ncode}',
+              l10n.ncodeLabel(item.ncode),
               style: const TextStyle(fontSize: 18),
             ),
             const SizedBox(height: 20),
@@ -101,7 +94,7 @@ class listDetailPage extends StatelessWidget {
             SelectableText(
               item.story,
               style: const TextStyle(fontSize: 18),
-            )
+            ),
           ],
         ),
       ),

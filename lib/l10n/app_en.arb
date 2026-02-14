@@ -1,0 +1,72 @@
+{
+  "@@locale": "en",
+  "appTitle": "Narou Reader",
+  "homeTab": "Home",
+  "savedTab": "Saved",
+  "settingsTab": "Settings",
+  "searchTitle": "Search",
+  "searchHint": "Enter a keyword",
+  "searchNoResults": "No search results",
+  "searchError": "An error occurred: {error}",
+  "@searchError": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "saveAction": "Save",
+  "savedListTitle": "Saved list",
+  "savedListEmpty": "No saved items.",
+  "savedListError": "Error: {error}",
+  "@savedListError": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "settingsTitle": "Settings",
+  "deleteAllTitle": "Delete all data",
+  "deleteAllSubtitle": "Delete all data in the saved list. Deleted data cannot be restored.",
+  "deleteAllDialogTitle": "Delete all data?",
+  "deleteAllDialogContent": "All saved data will be deleted.",
+  "cancel": "Cancel",
+  "ok": "OK",
+  "showTutorialTitle": "Show tutorial",
+  "showTutorialSubtitle": "How to use and new features",
+  "detailTitle": "Detail",
+  "saveSuccess": "Saved successfully",
+  "saveFailed": "Please try again",
+  "authorLabel": "Author: {author}",
+  "@authorLabel": {
+    "placeholders": {
+      "author": {}
+    }
+  },
+  "urlLabel": "URL: https://ncode.syosetu.com/{ncode}",
+  "@urlLabel": {
+    "placeholders": {
+      "ncode": {}
+    }
+  },
+  "ncodeLabel": "Ncode: {ncode}",
+  "@ncodeLabel": {
+    "placeholders": {
+      "ncode": {}
+    }
+  },
+  "savedItemDeleteConfirmTitle": "Delete this item?",
+  "savedItemDeleteConfirmContent": "This item will be deleted.",
+  "delete": "Delete",
+  "openUrlFailed": "Cannot open URL: {url}",
+  "@openUrlFailed": {
+    "placeholders": {
+      "url": {}
+    }
+  },
+  "operationError": "An error occurred: {error}",
+  "@operationError": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "accountTitle": "User info",
+  "localAccount": "Local account"
+}

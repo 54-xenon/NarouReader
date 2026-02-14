@@ -1,0 +1,72 @@
+{
+  "@@locale": "ja",
+  "appTitle": "なろうリーダー",
+  "homeTab": "ホーム",
+  "savedTab": "保存",
+  "settingsTab": "設定",
+  "searchTitle": "検索",
+  "searchHint": "キーワードを入力",
+  "searchNoResults": "検索結果がありません",
+  "searchError": "エラーが発生しました: {error}",
+  "@searchError": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "saveAction": "保存",
+  "savedListTitle": "保存リスト",
+  "savedListEmpty": "保存されたアイテムがありません。",
+  "savedListError": "エラー: {error}",
+  "@savedListError": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "settingsTitle": "設定",
+  "deleteAllTitle": "全てのデータを削除",
+  "deleteAllSubtitle": "保存リスト内のデータを全て削除します。削除したデータは元に戻せません。",
+  "deleteAllDialogTitle": "全てのデータを削除しますか？",
+  "deleteAllDialogContent": "保存した全てのデータが削除されます。",
+  "cancel": "キャンセル",
+  "ok": "OK",
+  "showTutorialTitle": "チュートリアルを表示",
+  "showTutorialSubtitle": "使い方と新機能の説明",
+  "detailTitle": "詳細ページ",
+  "saveSuccess": "正常に保存できました",
+  "saveFailed": "もう一度試してください",
+  "authorLabel": "作者: {author}",
+  "@authorLabel": {
+    "placeholders": {
+      "author": {}
+    }
+  },
+  "urlLabel": "URL: https://ncode.syosetu.com/{ncode}",
+  "@urlLabel": {
+    "placeholders": {
+      "ncode": {}
+    }
+  },
+  "ncodeLabel": "Ncode: {ncode}",
+  "@ncodeLabel": {
+    "placeholders": {
+      "ncode": {}
+    }
+  },
+  "savedItemDeleteConfirmTitle": "このアイテムを削除しますか？",
+  "savedItemDeleteConfirmContent": "このアイテムは削除されます。",
+  "delete": "削除",
+  "openUrlFailed": "URLを開けません: {url}",
+  "@openUrlFailed": {
+    "placeholders": {
+      "url": {}
+    }
+  },
+  "operationError": "エラーが発生しました: {error}",
+  "@operationError": {
+    "placeholders": {
+      "error": {}
+    }
+  },
+  "accountTitle": "ユーザー情報",
+  "localAccount": "ローカルアカウント"
+}

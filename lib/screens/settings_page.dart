@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:naroureader/util/settings_tile.dart';
 import '../database/savedList_helper.dart';
-
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
@@ -12,45 +12,48 @@ class SettingsPage extends StatefulWidget {
 
 class _SettingsPageState extends State<SettingsPage> {
   final dbHelper = DatabaseHelper();
+
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text("設定"),
+        title: Text(l10n.settingsTitle),
         elevation: 1,
       ),
       body: ListView(
         children: [
           SettingsTile(
-            titleText: "全てのデータを削除",
-            subtitleText: "保存リストないのデータを全て削除します。削除されたデータを元に戻すことはできません",
-            onPressed: () async{
-              final confim = await showDialog(
+            titleText: l10n.deleteAllTitle,
+            subtitleText: l10n.deleteAllSubtitle,
+            onPressed: () async {
+              final confirm = await showDialog<bool>(
                 context: context,
                 builder: (context) => AlertDialog(
-                  title: const Text("全てのデータを削除しますか？"),
-                  content: const Text("保存した全てのデータが削除されます。"),
+                  title: Text(l10n.deleteAllDialogTitle),
+                  content: Text(l10n.deleteAllDialogContent),
                   actions: [
                     TextButton(
                       onPressed: () => Navigator.pop(context, false),
-                      child: const Text("Cancel"),
+                      child: Text(l10n.cancel),
                     ),
                     TextButton(
                       onPressed: () => Navigator.pop(context, true),
-                      child: const Text("Ok"),
-                    )
+                      child: Text(l10n.ok),
+                    ),
                   ],
-                )
+                ),
               );
-              if (confim == true) {
+
+              if (confirm == true) {
                 await dbHelper.deleteAllItems();
-                
               }
             },
           ),
           SettingsTile(
-            titleText: "チュートリアルを表示",
-            subtitleText: "使い方と新機能の説明",
+            titleText: l10n.showTutorialTitle,
+            subtitleText: l10n.showTutorialSubtitle,
             onPressed: () {},
           ),
         ],
