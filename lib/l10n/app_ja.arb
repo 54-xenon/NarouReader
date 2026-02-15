@@ -10,7 +10,10 @@
   "searchError": "エラーが発生しました: {error}",
   "@searchError": {
     "placeholders": {
-      "error": {}
+      "error": {
+        "type": "Object"
+
+      }
     }
   },
   "saveAction": "保存",
@@ -19,7 +22,10 @@
   "savedListError": "エラー: {error}",
   "@savedListError": {
     "placeholders": {
-      "error": {}
+      "error": {
+        "type": "Object"
+
+      }
     }
   },
   "settingsTitle": "設定",
@@ -37,19 +43,27 @@
   "authorLabel": "作者: {author}",
   "@authorLabel": {
     "placeholders": {
-      "author": {}
+      "author": {
+        "type": "Object"
+
+      }
     }
   },
   "urlLabel": "URL: https://ncode.syosetu.com/{ncode}",
   "@urlLabel": {
     "placeholders": {
-      "ncode": {}
+      "ncode": {
+        "type": "Object"
+
+      }
     }
   },
   "ncodeLabel": "Ncode: {ncode}",
   "@ncodeLabel": {
     "placeholders": {
-      "ncode": {}
+      "ncode": {
+        "type": "Object"
+      }
     }
   },
   "savedItemDeleteConfirmTitle": "このアイテムを削除しますか？",
@@ -58,13 +72,17 @@
   "openUrlFailed": "URLを開けません: {url}",
   "@openUrlFailed": {
     "placeholders": {
-      "url": {}
+      "url": {
+        "type": "Object"
+      }
     }
   },
   "operationError": "エラーが発生しました: {error}",
   "@operationError": {
     "placeholders": {
-      "error": {}
+      "error": {
+        "type": "Object"
+      }
     }
   },
   "accountTitle": "ユーザー情報",

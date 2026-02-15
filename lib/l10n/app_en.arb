@@ -10,7 +10,9 @@
   "searchError": "An error occurred: {error}",
   "@searchError": {
     "placeholders": {
-      "error": {}
+      "error": {
+        "type": "Object"
+      }
     }
   },
   "saveAction": "Save",
@@ -19,7 +21,9 @@
   "savedListError": "Error: {error}",
   "@savedListError": {
     "placeholders": {
-      "error": {}
+      "error": {
+        "type": "Object"
+      }
     }
   },
   "settingsTitle": "Settings",
@@ -37,19 +41,26 @@
   "authorLabel": "Author: {author}",
   "@authorLabel": {
     "placeholders": {
-      "author": {}
+      "author": {
+        "type": "Object"
+
+      }
     }
   },
   "urlLabel": "URL: https://ncode.syosetu.com/{ncode}",
   "@urlLabel": {
     "placeholders": {
-      "ncode": {}
+      "ncode": {
+        "type": "Object"
+      }
     }
   },
   "ncodeLabel": "Ncode: {ncode}",
   "@ncodeLabel": {
     "placeholders": {
-      "ncode": {}
+      "ncode": {
+        "type": "Object"
+      }
     }
   },
   "savedItemDeleteConfirmTitle": "Delete this item?",
@@ -58,13 +69,17 @@
   "openUrlFailed": "Cannot open URL: {url}",
   "@openUrlFailed": {
     "placeholders": {
-      "url": {}
+      "url": {
+        "type": "Object"
+      }
     }
   },
   "operationError": "An error occurred: {error}",
   "@operationError": {
     "placeholders": {
-      "error": {}
+      "error": {
+        "type": "Object"
+      }
     }
   },
   "accountTitle": "User info",
