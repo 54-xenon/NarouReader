@@ -1,7 +1,8 @@
 {
   "@@locale": "ja",
   "appTitle": "なろうリーダー",
-  "homeTab": "ホーム",
+  "searchTab": "検索",
+  "feedTab": "フィード",
   "savedTab": "保存",
   "settingsTab": "設定",
   "searchTitle": "検索",

@@ -1,7 +1,8 @@
 {
   "@@locale": "en",
   "appTitle": "Narou Reader",
-  "homeTab": "Home",
+  "searchTab": "Search",
+  "feedTab": "Feed",
   "savedTab": "Saved",
   "settingsTab": "Settings",
   "searchTitle": "Search",

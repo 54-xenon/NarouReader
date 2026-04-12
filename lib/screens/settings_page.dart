@@ -51,11 +51,11 @@ class _SettingsPageState extends State<SettingsPage> {
               }
             },
           ),
-          SettingsTile(
-            titleText: l10n.showTutorialTitle,
-            subtitleText: l10n.showTutorialSubtitle,
-            onPressed: () {},
-          ),
+          // SettingsTile(
+          //   titleText: l10n.showTutorialTitle,
+          //   subtitleText: l10n.showTutorialSubtitle,
+          //   onPressed: () {},
+          // ),
         ],
       ),
     );
