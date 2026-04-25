@@ -5,7 +5,6 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:naroureader/database/savedList_helper.dart';
 import 'package:naroureader/models/savedList_modell.dart';
 import 'package:naroureader/providers/theme_provider.dart';
-// import 'package:naroureader/screens/account_Page.dart';
 import 'package:naroureader/screens/detailPage.dart';
 import '../models/novel.dart';
 import '../services/api_survice.dart';
@@ -109,13 +108,6 @@ class _SearchScreenState extends State<SearchScreen> {
       appBar: AppBar(
         elevation: 1,
         title: Text(l10n.searchTitle),
-        // leading: IconButton(
-        //   icon: const Icon(Icons.account_circle),
-        //   onPressed: () => Navigator.push(
-        //     context,
-        //     MaterialPageRoute(builder: (context) => const AccountPage()),
-        //   ),
-        // ),
         actions: [
           Consumer(
             builder: (context, ref, child) {

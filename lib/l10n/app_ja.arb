@@ -36,8 +36,6 @@
   "deleteAllDialogContent": "保存した全てのデータが削除されます。",
   "cancel": "キャンセル",
   "ok": "OK",
-  "showTutorialTitle": "チュートリアルを表示",
-  "showTutorialSubtitle": "使い方と新機能の説明",
   "detailTitle": "詳細ページ",
   "saveSuccess": "正常に保存できました",
   "saveFailed": "もう一度試してください",
@@ -86,6 +84,4 @@
       }
     }
   },
-  "accountTitle": "ユーザー情報",
-  "localAccount": "ローカルアカウント"
 }

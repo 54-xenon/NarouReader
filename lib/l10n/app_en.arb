@@ -34,8 +34,6 @@
   "deleteAllDialogContent": "All saved data will be deleted.",
   "cancel": "Cancel",
   "ok": "OK",
-  "showTutorialTitle": "Show tutorial",
-  "showTutorialSubtitle": "How to use and new features",
   "detailTitle": "Detail",
   "saveSuccess": "Saved successfully",
   "saveFailed": "Please try again",
@@ -83,6 +81,4 @@
       }
     }
   },
-  "accountTitle": "User info",
-  "localAccount": "Local account"
 }
