@@ -4,6 +4,7 @@ import 'package:path/path.dart';
 import '../models/savedList_modell.dart';
 
 class DatabaseHelper {
+  // データベースのインスタンス化 -> 実際に呼び出して実行できるような状態にする
   static final DatabaseHelper _instance = DatabaseHelper._internal();
   factory DatabaseHelper() => _instance;
   static Database? _database;

@@ -2,7 +2,7 @@
 class Item {
   final int? id;
   final String title;  // 小説のタイトル
-  final String ncode;  // 小説コード
+  final String ncode;  // ncode
   final String story;  // 小説のあらすじ
 
 
@@ -26,6 +26,7 @@ class Item {
   // ItemオブジェクトをMapに変換
   Map<String, dynamic> toMap() {
     return {
+      
       'id': id,
       'title': title,
       'ncode': ncode,

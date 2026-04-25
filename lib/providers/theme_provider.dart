@@ -1,6 +1,6 @@
 // lib/providers/theme_provider.dart
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'; 
 
 // テーマ状態を管理する StateNotifier
 class ThemeNotifier extends StateNotifier<ThemeMode> {

@@ -5,6 +5,14 @@ class TopPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return const Scaffold(
+      // フィード画面に表示したい情報 
+        // 最近保存した項目
+        // 人気の小説
+        // ユーザランキング
+
+      // ユーザランキングとかそれ用のAPIがあったから、画面が開かれたときにそのAPIを叩くようにすればいいかな
+
+    );
   }
 }
