@@ -76,27 +76,31 @@ class SavedListDetailPage extends StatelessWidget {
         child: const Icon(Icons.open_in_browser),
 
       ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            SelectableText(
-              item.title,
-              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 20),
-            SelectableText(
-              l10n.ncodeLabel(item.ncode),
-              style: const TextStyle(fontSize: 18),
-            ),
-            const SizedBox(height: 20),
-            const Divider(),
-            SelectableText(
-              item.story,
-              style: const TextStyle(fontSize: 18),
-            ),
-          ],
+      body: SelectionArea(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(
+                item.title,
+                style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 20),
+
+              Text(
+                l10n.ncodeLabel(item.ncode),
+                style: const TextStyle(fontSize: 18),
+              ),
+              const SizedBox(height: 20),
+              
+              const Divider(),
+              Text(
+                item.story,
+                style: const TextStyle(fontSize: 18),
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -71,7 +71,7 @@ class _DetailPageState extends State<DetailPage> {
               ),
               const SizedBox(height: 10),
 
-              // 大ジャンル-> 最初の形はInt型。mapで対応するカテゴリをStringで将来的には表示したい
+              // 大ジャンル-
               Text(
                 "大カテゴリ: ${widget.novel.biggenre}",
                 style: const TextStyle(fontSize: 18),
@@ -101,7 +101,7 @@ class _DetailPageState extends State<DetailPage> {
 
               // 文字数
               Text(
-                "文字数: ${widget.novel.length}",
+                "文字数: ${widget.novel.length}字",
                 style: const TextStyle(fontSize: 18),
               ),
               const SizedBox(height: 10),
@@ -141,7 +141,7 @@ class _DetailPageState extends State<DetailPage> {
               ),
               const SizedBox(height: 10),
 
-              
+
               const Divider(),
               // story
               Text(
