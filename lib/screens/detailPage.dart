@@ -17,6 +17,10 @@ class DetailPage extends StatefulWidget {
 class _DetailPageState extends State<DetailPage> {
   final DatabaseHelper dbHelper = DatabaseHelper();
 
+  String _formatDate(DateTime dt) {
+    return '${dt.year}年${dt.month.toString().padLeft(2, '0')}月${dt.day.toString().padLeft(2, '0')}日';
+  }
+
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
@@ -35,6 +39,17 @@ class _DetailPageState extends State<DetailPage> {
               title: widget.novel.title,
               ncode: widget.novel.ncode,
               story: widget.novel.story,
+              writer: widget.novel.writer,
+              biggenre: widget.novel.biggenre,
+              genre: widget.novel.genre,
+              keywords: widget.novel.keywords,
+              novelType: widget.novel.novelType,
+              length: widget.novel.length,
+              time: widget.novel.time,
+              globalPoint: widget.novel.globalPoint,
+              favNovelCunt: widget.novel.favNovelCunt,
+              generalFirstup: widget.novel.generalFirstup.toIso8601String(),
+              generalLastup: widget.novel.generalLastup.toIso8601String(),
             ),
           );
 
@@ -113,9 +128,9 @@ class _DetailPageState extends State<DetailPage> {
               ),
               const SizedBox(height: 10),
               
-              // 創業評価ポイント
+              // 総合評価ポイント
               Text(
-                "創業評価ポインt: ${widget.novel.globalPoint}pt",
+                "総合評価ポイント: ${widget.novel.globalPoint}pt",
                 style: const TextStyle(fontSize: 18),
               ),
               const SizedBox(height: 10),
@@ -129,14 +144,14 @@ class _DetailPageState extends State<DetailPage> {
 
               // 初回掲載日
               Text(
-                "初回掲載日${widget.novel.generalFirstup}",
+                "初回掲載日: ${_formatDate(widget.novel.generalFirstup)}",
                 style: const TextStyle(fontSize: 18),
               ),
               const SizedBox(height: 10),
-              
+
               // 最終掲載日
               Text(
-                "最終掲載日${widget.novel.generalLastup}",
+                "最終掲載日: ${_formatDate(widget.novel.generalLastup)}",
                 style: const TextStyle(fontSize: 18),
               ),
               const SizedBox(height: 10),

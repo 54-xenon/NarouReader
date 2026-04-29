@@ -193,10 +193,23 @@ class _SearchScreenState extends State<SearchScreen> {
                                             BorderRadius.circular(12),
                                         onPressed: (context) async {
                                           await dbHelper.insertItem(
+                                            // DBへAPIから取得したプロパティを保存する
                                             Item(
                                               title: novel.title,
                                               ncode: novel.ncode,
                                               story: novel.story,
+                                              writer: novel.writer,
+                                              biggenre: novel.biggenre,
+                                              genre: novel.genre,
+                                              keywords: novel.keywords,
+                                              novelType: novel.novelType,
+                                              length: novel.length,
+                                              time: novel.time,
+                                              globalPoint: novel.globalPoint,
+                                              favNovelCunt: novel.favNovelCunt,
+                                              // DateTime型をISO8601のYYMMDDみたいな形式で文字列に変換数r
+                                              generalFirstup: novel.generalFirstup.toIso8601String(),
+                                              generalLastup: novel.generalLastup.toIso8601String(),
                                             ),
                                           );
                                         },
