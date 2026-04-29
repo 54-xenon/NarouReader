@@ -45,16 +45,10 @@ class _SettingsPageState extends State<SettingsPage> {
                   ],
                 ),
               );
-
               if (confirm == true) {
                 await dbHelper.deleteAllItems();
               }
             },
-          ),
-          SettingsTile(
-            titleText: l10n.showTutorialTitle,
-            subtitleText: l10n.showTutorialSubtitle,
-            onPressed: () {},
           ),
         ],
       ),

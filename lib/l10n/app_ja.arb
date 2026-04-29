@@ -1,7 +1,8 @@
 {
   "@@locale": "ja",
   "appTitle": "なろうリーダー",
-  "homeTab": "ホーム",
+  "searchTab": "検索",
+  "feedTab": "フィード",
   "savedTab": "保存",
   "settingsTab": "設定",
   "searchTitle": "検索",
@@ -35,8 +36,6 @@
   "deleteAllDialogContent": "保存した全てのデータが削除されます。",
   "cancel": "キャンセル",
   "ok": "OK",
-  "showTutorialTitle": "チュートリアルを表示",
-  "showTutorialSubtitle": "使い方と新機能の説明",
   "detailTitle": "詳細ページ",
   "saveSuccess": "正常に保存できました",
   "saveFailed": "もう一度試してください",
@@ -84,7 +83,5 @@
         "type": "Object"
       }
     }
-  },
-  "accountTitle": "ユーザー情報",
-  "localAccount": "ローカルアカウント"
+  }
 }

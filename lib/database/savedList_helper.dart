@@ -4,6 +4,7 @@ import 'package:path/path.dart';
 import '../models/savedList_modell.dart';
 
 class DatabaseHelper {
+  // データベースのインスタンス化 -> 実際に呼び出して実行できるような状態にする
   static final DatabaseHelper _instance = DatabaseHelper._internal();
   factory DatabaseHelper() => _instance;
   static Database? _database;
@@ -20,11 +21,14 @@ class DatabaseHelper {
   // データベースの初期化
   Future<Database> _initDatabase() async {
     String path = join(await getDatabasesPath(), 'my_database.db');
+
+    // データテーブル再構築のダメに一旦削除
+    // await deleteDatabase(path);
+
     return openDatabase(
       path,
-      version: 3,
+      version: 1,
       onCreate: _onCreate,
-
     );
   }
 
@@ -38,7 +42,18 @@ class DatabaseHelper {
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         title TEXT,
         ncode TEXT,
-        story TEXT
+        story TEXT,
+        writer TEXT,
+        biggenre INTEGER,
+        genre INTEGER,
+        keywords TEXT,
+        novel_type INTEGER,
+        length INTEGER,
+        time INTEGER,
+        global_point INTEGER,
+        fav_novel_cnt INTEGER,
+        general_firstup TEXT,
+        general_lastup TEXT
       )
       ''');
   }

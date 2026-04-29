@@ -1,7 +1,8 @@
 {
   "@@locale": "en",
   "appTitle": "Narou Reader",
-  "homeTab": "Home",
+  "searchTab": "Search",
+  "feedTab": "Feed",
   "savedTab": "Saved",
   "settingsTab": "Settings",
   "searchTitle": "Search",
@@ -33,8 +34,6 @@
   "deleteAllDialogContent": "All saved data will be deleted.",
   "cancel": "Cancel",
   "ok": "OK",
-  "showTutorialTitle": "Show tutorial",
-  "showTutorialSubtitle": "How to use and new features",
   "detailTitle": "Detail",
   "saveSuccess": "Saved successfully",
   "saveFailed": "Please try again",
@@ -81,7 +80,5 @@
         "type": "Object"
       }
     }
-  },
-  "accountTitle": "User info",
-  "localAccount": "Local account"
+  }
 }

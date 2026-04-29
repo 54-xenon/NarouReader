@@ -3,9 +3,10 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:naroureader/providers/theme_provider.dart';
-import 'package:naroureader/screens/home_screen.dart';
+import 'package:naroureader/screens/search_screen.dart';
 import 'package:naroureader/screens/savedList_screen.dart';
 import 'package:naroureader/screens/settings_page.dart';
+import 'package:naroureader/screens/top_page.dart';
 
 void main() {
   runApp(const ProviderScope(child: MyApp()));
@@ -49,7 +50,8 @@ class BottomNavigation extends StatefulWidget {
 
 class _BottomNavigationState extends State<BottomNavigation> {
   static final _screens = [
-    HomeScreen(),
+    const TopPage(),
+    SearchScreen(),
     const SavedListPage(),
     const SettingsPage(),
   ];
@@ -72,9 +74,14 @@ class _BottomNavigationState extends State<BottomNavigation> {
         selectedIndex: _selectedIndex,
         destinations: <Widget>[
           NavigationDestination(
-            selectedIcon: const Icon(Icons.home),
-            icon: const Icon(Icons.home_outlined),
-            label: l10n.homeTab,
+            selectedIcon: const Icon(Icons.feed),
+            icon: const Icon(Icons.feed_outlined),
+            label: l10n.feedTab,
+          ),
+          NavigationDestination(
+            selectedIcon: const Icon(Icons.search),
+            icon: const Icon(Icons.search_outlined),
+            label: l10n.searchTab,
           ),
           NavigationDestination(
             selectedIcon: const Icon(Icons.list),
