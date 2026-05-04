@@ -1,19 +1,4 @@
 
-// 追加で表示したいデータ
-/*
-  - biggenre -> 大ジャンル。Integer型
-  - genre -> ジャンル
-  - keyword -> キーワード、タグみたいなもの
-  - general_firstup -> 初回掲載日
-  - general_lastup -> 最新掲載日
-  - novel_type -> 連載か短編か？
-  - length -> 作品文字数
-  - time -> 読書時間(分単位)
-  - global_point -> 総合評価ポイント
-  - fav_novel_cunt -> ブックマーク数
- */
-
-
 // モデルクラス
 class Novel {
   final String title; //作者名
