@@ -6,7 +6,7 @@ class TopPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      // フィード画面に表示したい情報 
+      // フィード画面に表示したい情報
         // 最近保存した項目
         // 人気の小説
         // ユーザランキング

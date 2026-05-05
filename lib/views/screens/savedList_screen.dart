@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:naroureader/database/savedList_helper.dart';
-import 'package:naroureader/screens/savedlistscreen_detailPage.dart';
-import '../models/savedList_modell.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:naroureader/providers/service_providers.dart';
+import 'package:naroureader/views/screens/savedlistscreen_detailPage.dart';
+import '../../models/savedList_modell.dart';
 
-class SavedListPage extends StatefulWidget {
+class SavedListPage extends ConsumerStatefulWidget {
   const SavedListPage({super.key});
 
   @override
-  State<SavedListPage> createState() => _SavedListPageState();
+  ConsumerState<SavedListPage> createState() => _SavedListPageState();
 }
 
-class _SavedListPageState extends State<SavedListPage> {
-  final dbHelper = DatabaseHelper();
-
+class _SavedListPageState extends ConsumerState<SavedListPage> {
   Future<void> _loadItems() async {
     setState(() {});
   }
@@ -28,7 +27,7 @@ class _SavedListPageState extends State<SavedListPage> {
         elevation: 1,
       ),
       body: FutureBuilder<List<Item>>(
-        future: dbHelper.getItems(),
+        future: ref.read(databaseHelperProvider).getItems(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());

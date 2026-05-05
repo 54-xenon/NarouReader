@@ -83,5 +83,35 @@
         "type": "Object"
       }
     }
+  },
+  "writerLabel": "著者",
+  "ncodeFieldLabel": "Nコード",
+  "biggenreLabel": "大カテゴリ",
+  "genreLabel": "カテゴリ",
+  "keywordsLabel": "キーワード",
+  "novelTypeLabel": "種類",
+  "lengthLabel": "文字数",
+  "readTimeLabel": "読書時間",
+  "globalPointLabel": "総合評価ポイント",
+  "favNovelCuntLabel": "ブックマーク数",
+  "firstUpLabel": "初回掲載日",
+  "lastUpLabel": "最終掲載日",
+  "lengthValue": "{value}字",
+  "@lengthValue": {
+    "placeholders": {
+      "value": { "type": "Object" }
+    }
+  },
+  "readTimeValue": "{value}分",
+  "@readTimeValue": {
+    "placeholders": {
+      "value": { "type": "Object" }
+    }
+  },
+  "globalPointValue": "{value}pt",
+  "@globalPointValue": {
+    "placeholders": {
+      "value": { "type": "Object" }
+    }
   }
 }

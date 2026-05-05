@@ -80,5 +80,35 @@
         "type": "Object"
       }
     }
+  },
+  "writerLabel": "Author",
+  "ncodeFieldLabel": "Ncode",
+  "biggenreLabel": "Category",
+  "genreLabel": "Genre",
+  "keywordsLabel": "Keywords",
+  "novelTypeLabel": "Type",
+  "lengthLabel": "Length",
+  "readTimeLabel": "Reading time",
+  "globalPointLabel": "Rating",
+  "favNovelCuntLabel": "Bookmarks",
+  "firstUpLabel": "First published",
+  "lastUpLabel": "Last updated",
+  "lengthValue": "{value} chars",
+  "@lengthValue": {
+    "placeholders": {
+      "value": { "type": "Object" }
+    }
+  },
+  "readTimeValue": "{value} min",
+  "@readTimeValue": {
+    "placeholders": {
+      "value": { "type": "Object" }
+    }
+  },
+  "globalPointValue": "{value}pt",
+  "@globalPointValue": {
+    "placeholders": {
+      "value": { "type": "Object" }
+    }
   }
 }
