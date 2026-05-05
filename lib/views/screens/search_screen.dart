@@ -7,6 +7,7 @@ import 'package:naroureader/providers/service_providers.dart';
 import 'package:naroureader/providers/theme_provider.dart';
 import 'package:naroureader/views/screens/detailPage.dart';
 import 'package:naroureader/viewmodels/search_viewmodel.dart';
+import 'package:naroureader/views/widgets/search_box.dart';
 
 class SearchScreen extends ConsumerStatefulWidget {
   @override
@@ -14,7 +15,6 @@ class SearchScreen extends ConsumerStatefulWidget {
 }
 
 class _SearchScreenState extends ConsumerState<SearchScreen> {
-  final TextEditingController _controller = TextEditingController();
   final ScrollController _scrollController = ScrollController();
 
   @override
@@ -25,7 +25,6 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
 
   @override
   void dispose() {
-    _controller.dispose();
     _scrollController.dispose();
     super.dispose();
   }
@@ -72,35 +71,10 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            Container(
-              decoration: const BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                    color: Color.fromARGB(255, 188, 188, 188),
-                    blurRadius: 10,
-                    spreadRadius: 0.0,
-                  ),
-                ],
-              ),
-              child: TextField(
-                controller: _controller,
-                decoration: InputDecoration(
-                  filled: true,
-                  hintText: l10n.searchHint,
-                  prefixIcon: IconButton(
-                    icon: const Icon(Icons.search),
-                    onPressed: () => ref
-                        .read(searchViewModelProvider.notifier)
-                        .search(_controller.text),
-                  ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide.none,
-                  ),
-                ),
-                onSubmitted: (keyword) =>
-                    ref.read(searchViewModelProvider.notifier).search(keyword),
-              ),
+            SearchBox(
+              hintText: l10n.searchHint,
+              onSearch: (keyword) =>
+                  ref.read(searchViewModelProvider.notifier).search(keyword),
             ),
             const SizedBox(height: 10),
             Expanded(

@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:naroureader/models/novel.dart';
 import 'package:naroureader/models/savedList_modell.dart';
 import '../../providers/service_providers.dart';
+import '../widgets/novel_info_row.dart';
 
 class DetailPage extends ConsumerStatefulWidget {
   const DetailPage({super.key, required this.novel});
@@ -64,6 +65,7 @@ class _DetailPageState extends ConsumerState<DetailPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
+              
               // タイトル
               Text(
                 widget.novel.title,
@@ -71,90 +73,18 @@ class _DetailPageState extends ConsumerState<DetailPage> {
               ),
               const SizedBox(height: 20),
 
-              // 著者名
-              Text(
-                l10n.authorLabel(widget.novel.writer),
-                style: const TextStyle(fontSize: 18),
-              ),
-              const SizedBox(height: 10),
-
-              // Nコード
-              Text(
-                l10n.ncodeLabel(widget.novel.ncode),
-                style: const TextStyle(fontSize: 18),
-              ),
-              const SizedBox(height: 10),
-
-              // 大ジャンル-
-              Text(
-                "大カテゴリ: ${widget.novel.biggenre}",
-                style: const TextStyle(fontSize: 18),
-              ),
-              const SizedBox(height: 10),
-
-              // 少ジャンル
-              Text(
-                "カテゴリ: ${widget.novel.genre}",
-                style: const TextStyle(fontSize: 18),
-              ),
-              const SizedBox(height: 10),
-
-              // キーワード
-              Text(
-                "キーワード: ${widget.novel.keywords}",
-                style: const TextStyle(fontSize: 18),
-              ),
-              const SizedBox(height: 10),
-
-              // 種類
-              Text(
-                "種類: ${widget.novel.novelType}",
-                style: const TextStyle(fontSize: 18),
-              ),
-              const SizedBox(height: 10),
-
-              // 文字数
-              Text(
-                "文字数: ${widget.novel.length}字",
-                style: const TextStyle(fontSize: 18),
-              ),
-              const SizedBox(height: 10),
-
-              // 所要時間
-              Text(
-                "読書時間: ${widget.novel.time}分",
-                style: const TextStyle(fontSize: 18),
-              ),
-              const SizedBox(height: 10),
-
-              // 総合評価ポイント
-              Text(
-                "総合評価ポイント: ${widget.novel.globalPoint}pt",
-                style: const TextStyle(fontSize: 18),
-              ),
-              const SizedBox(height: 10),
-
-              //ブックマーク数
-              Text(
-                "ブックマーク数: ${widget.novel.favNovelCunt}",
-                style: const TextStyle(fontSize: 18),
-              ),
-              const SizedBox(height: 10),
-
-              // 初回掲載日
-              Text(
-                "初回掲載日: ${_formatDate(widget.novel.generalFirstup)}",
-                style: const TextStyle(fontSize: 18),
-              ),
-              const SizedBox(height: 10),
-
-              // 最終掲載日
-              Text(
-                "最終掲載日: ${_formatDate(widget.novel.generalLastup)}",
-                style: const TextStyle(fontSize: 18),
-              ),
-              const SizedBox(height: 10),
-
+              //その他のプロパティ
+              NovelInfoRow(label: '著者', value: widget.novel.writer),
+              NovelInfoRow(label: 'Nコード', value: widget.novel.ncode),
+              NovelInfoRow(label: '大カテゴリ', value: '${widget.novel.biggenre}'),
+              NovelInfoRow(label: 'カテゴリ', value: '${widget.novel.genre}'),
+              NovelInfoRow(label: 'キーワード', value: widget.novel.keywords),
+              NovelInfoRow(label: '種類', value: '${widget.novel.novelType}'),
+              NovelInfoRow(label: '文字数', value: '${widget.novel.length}'),
+              NovelInfoRow(label: '読書時間', value: '${widget.novel.time}分'),
+              NovelInfoRow(label: '総合評価ポイント', value: '${widget.novel.globalPoint}'),
+              NovelInfoRow(label: '初回投稿日', value: _formatDate(widget.novel.generalFirstup)),
+              NovelInfoRow(label: '最終掲載日', value: _formatDate(widget.novel.generalLastup)),
 
               const Divider(),
               // story

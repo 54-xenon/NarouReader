@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../providers/service_providers.dart';
 import '../../models/savedList_modell.dart';
+import '../widgets/novel_info_row.dart';
 
 class SavedListDetailPage extends ConsumerWidget {
   const SavedListDetailPage({super.key, required this.item});
@@ -98,82 +99,17 @@ class SavedListDetailPage extends ConsumerWidget {
               ),
               const SizedBox(height: 20),
 
-              // 著者名
-              Text(
-                "著者: ${item.writer}",
-                style: const TextStyle(fontSize: 18),
-              ),
-              const SizedBox(height: 10),
-
-              // Nコード
-              Text(
-                l10n.ncodeLabel(item.ncode),
-                style: const TextStyle(fontSize: 18),
-              ),
-              const SizedBox(height: 10),
-
-              // 大ジャンル
-              Text(
-                "大カテゴリ: ${item.biggenre}",
-                style: const TextStyle(fontSize: 18),
-              ),
-              const SizedBox(height: 10),
-
-              // ジャンル
-              Text(
-                "カテゴリ: ${item.genre}",
-                style: const TextStyle(fontSize: 18),
-              ),
-              const SizedBox(height: 18),
-
-              // キーワード
-              Text(
-                "キーワード: ${item.keywords}",
-                style: const TextStyle(fontSize: 18),
-              ),
-              const SizedBox(height: 10),
-
-              // 種類
-              Text(
-                "種類: ${item.novelType}",
-                style: const TextStyle(fontSize: 18),
-              ),
-              const SizedBox(height: 10),
-
-              // 文字数
-              Text(
-                "文字数: ${item.length}",
-                style: const TextStyle(fontSize: 18),
-              ),
-              const SizedBox(height: 10),
-
-              // 所要時間
-              Text(
-                "読書時間: ${item.time}分",
-                style: const TextStyle(fontSize: 18),
-              ),
-              const SizedBox(height: 10),
-
-              // 創業評価ポイント
-              Text(
-                "総合評価ポイント: ${item.globalPoint}",
-                style: const TextStyle(fontSize: 18),
-              ),
-              const SizedBox(height: 10),
-
-              // 初回投稿日
-              Text(
-                "初回投稿日: ${_formatDate(item.generalFirstup)}",
-                style: const TextStyle(fontSize: 18),
-              ),
-              const SizedBox(height: 10),
-
-              // 最終掲載日
-              Text(
-                "最終掲載日: ${_formatDate(item.generalLastup)}",
-                style: const TextStyle(fontSize: 18),
-              ),
-              const SizedBox(height: 20),
+              NovelInfoRow(label: '著者', value: item.writer),
+              NovelInfoRow(label: 'Nコード', value: item.ncode),
+              NovelInfoRow(label: '大カテゴリ', value: '${item.biggenre}'),
+              NovelInfoRow(label: 'カテゴリ', value: '${item.genre}'),
+              NovelInfoRow(label: 'キーワード', value: item.keywords),
+              NovelInfoRow(label: '種類', value: '${item.novelType}'),
+              NovelInfoRow(label: '文字数', value: '${item.length}'),
+              NovelInfoRow(label: '読書時間', value: '${item.time}分'),
+              NovelInfoRow(label: '総合評価ポイント', value: '${item.globalPoint}'),
+              NovelInfoRow(label: '初回投稿日', value: _formatDate(item.generalFirstup)),
+              NovelInfoRow(label: '最終掲載日', value: _formatDate(item.generalLastup)),
 
               const Divider(),
               Text(
