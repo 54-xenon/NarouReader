@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:naroureader/models/novel.dart';
 import 'package:naroureader/models/savedList_modell.dart';
 import '../../providers/service_providers.dart';
+import '../../services/date_formatter.dart';
 import '../widgets/novel_info_row.dart';
 
 class DetailPage extends ConsumerStatefulWidget {
@@ -17,14 +18,10 @@ class DetailPage extends ConsumerStatefulWidget {
 }
 
 class _DetailPageState extends ConsumerState<DetailPage> {
-
-  String _formatDate(DateTime dt) {
-    return '${dt.year}年${dt.month.toString().padLeft(2, '0')}月${dt.day.toString().padLeft(2, '0')}日';
-  }
-
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
+    final locale = Localizations.localeOf(context).toString();
 
     return Scaffold(
       appBar: AppBar(
@@ -74,17 +71,18 @@ class _DetailPageState extends ConsumerState<DetailPage> {
               const SizedBox(height: 20),
 
               //その他のプロパティ
-              NovelInfoRow(label: '著者', value: widget.novel.writer),
-              NovelInfoRow(label: 'Nコード', value: widget.novel.ncode),
-              NovelInfoRow(label: '大カテゴリ', value: '${widget.novel.biggenre}'),
-              NovelInfoRow(label: 'カテゴリ', value: '${widget.novel.genre}'),
-              NovelInfoRow(label: 'キーワード', value: widget.novel.keywords),
-              NovelInfoRow(label: '種類', value: '${widget.novel.novelType}'),
-              NovelInfoRow(label: '文字数', value: '${widget.novel.length}'),
-              NovelInfoRow(label: '読書時間', value: '${widget.novel.time}分'),
-              NovelInfoRow(label: '総合評価ポイント', value: '${widget.novel.globalPoint}'),
-              NovelInfoRow(label: '初回投稿日', value: _formatDate(widget.novel.generalFirstup)),
-              NovelInfoRow(label: '最終掲載日', value: _formatDate(widget.novel.generalLastup)),
+              NovelInfoRow(label: l10n.writerLabel, value: widget.novel.writer),
+              NovelInfoRow(label: l10n.ncodeFieldLabel, value: widget.novel.ncode),
+              NovelInfoRow(label: l10n.biggenreLabel, value: '${widget.novel.biggenre}'),
+              NovelInfoRow(label: l10n.genreLabel, value: '${widget.novel.genre}'),
+              NovelInfoRow(label: l10n.keywordsLabel, value: widget.novel.keywords),
+              NovelInfoRow(label: l10n.novelTypeLabel, value: '${widget.novel.novelType}'),
+              NovelInfoRow(label: l10n.lengthLabel, value: l10n.lengthValue(widget.novel.length)),
+              NovelInfoRow(label: l10n.readTimeLabel, value: l10n.readTimeValue(widget.novel.time)),
+              NovelInfoRow(label: l10n.globalPointLabel, value: l10n.globalPointValue(widget.novel.globalPoint)),
+              NovelInfoRow(label: l10n.favNovelCuntLabel, value: '${widget.novel.favNovelCunt}'),
+              NovelInfoRow(label: l10n.firstUpLabel, value: DateFormatter.format(widget.novel.generalFirstup, locale: locale)),
+              NovelInfoRow(label: l10n.lastUpLabel, value: DateFormatter.format(widget.novel.generalLastup, locale: locale)),
 
               const Divider(),
               // story
