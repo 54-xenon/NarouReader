@@ -10,6 +10,7 @@ import 'package:naroureader/viewmodels/search_viewmodel.dart';
 import 'package:naroureader/views/widgets/search_box.dart';
 
 class SearchScreen extends ConsumerStatefulWidget {
+  const SearchScreen({super.key});
   @override
   ConsumerState<SearchScreen> createState() => _SearchScreenState();
 }

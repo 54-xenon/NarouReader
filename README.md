@@ -42,15 +42,37 @@ flutter run
 ```
 lib/
 ├── main.dart
-├── database/
-│   └── post.dart
+│
+├── models/
+│   ├── novel.dart
+│   └── savedList_model.dart
+│
+│──providers/
+│   ├── service_providees.dart    
+│   └── theme_providers.dart
+│
 ├── services/
-│   └── api_service.dart
-└── screens/
-    ├── home_screen.dart
-    ├── detailPage.dart
-    ├── savedListPage.dart
-    └── savedlistscreen_detailPage.dart
+│   ├── api_service.dart
+│   ├── database_helper.dart
+│   └── date_formatter.dart
+│
+│── viewmodels/
+│   └── search_viewmodel.dart
+│
+│── views/
+    ├── screens/    
+    │   ├── detailPage.dart
+    │   ├── savedList_screen.dart
+    │   ├── savedlistscreen_detailPage.dart
+    │   ├── seach_screen.dart
+    │   ├── settings_screen.dart
+    │   └── top_page.dart
+    │
+    └── widgets/
+        ├── novel_info_row.dart
+        ├── search_box.dart
+        └── settings_tile.dart
+
 ```
 
 ## 参考リンク
