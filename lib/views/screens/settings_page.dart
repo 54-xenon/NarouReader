@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:naroureader/util/settings_tile.dart';
-import '../database/savedList_helper.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:naroureader/views/widgets/settings_tile.dart';
+import '../../providers/service_providers.dart';
 
-class SettingsPage extends StatefulWidget {
+class SettingsPage extends ConsumerStatefulWidget {
   const SettingsPage({super.key});
 
   @override
-  State<SettingsPage> createState() => _SettingsPageState();
+  ConsumerState<SettingsPage> createState() => _SettingsPageState();
 }
 
-class _SettingsPageState extends State<SettingsPage> {
-  final dbHelper = DatabaseHelper();
-
+class _SettingsPageState extends ConsumerState<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
@@ -46,7 +45,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 ),
               );
               if (confirm == true) {
-                await dbHelper.deleteAllItems();
+                await ref.read(databaseHelperProvider).deleteAllItems();
               }
             },
           ),

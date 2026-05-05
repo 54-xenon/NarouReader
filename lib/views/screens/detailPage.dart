@@ -1,21 +1,21 @@
 // ignore: file_names
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:naroureader/models/novel.dart';
 import 'package:naroureader/models/savedList_modell.dart';
-import '../database/savedList_helper.dart';
+import '../../providers/service_providers.dart';
 
-class DetailPage extends StatefulWidget {
+class DetailPage extends ConsumerStatefulWidget {
   const DetailPage({super.key, required this.novel});
 
   final Novel novel;
 
   @override
-  State<DetailPage> createState() => _DetailPageState();
+  ConsumerState<DetailPage> createState() => _DetailPageState();
 }
 
-class _DetailPageState extends State<DetailPage> {
-  final DatabaseHelper dbHelper = DatabaseHelper();
+class _DetailPageState extends ConsumerState<DetailPage> {
 
   String _formatDate(DateTime dt) {
     return '${dt.year}年${dt.month.toString().padLeft(2, '0')}月${dt.day.toString().padLeft(2, '0')}日';
@@ -34,7 +34,9 @@ class _DetailPageState extends State<DetailPage> {
       // 追加ボタンの処理
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
-          await dbHelper.insertItem(
+          // DatabaseHelperをProvidersで定義したものをインスタンス化
+          final messenger = ScaffoldMessenger.of(context);
+          await ref.read(databaseHelperProvider).insertItem(
             Item(
               title: widget.novel.title,
               ncode: widget.novel.ncode,
@@ -52,10 +54,7 @@ class _DetailPageState extends State<DetailPage> {
               generalLastup: widget.novel.generalLastup.toIso8601String(),
             ),
           );
-
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(l10n.saveSuccess)),
-          );
+          messenger.showSnackBar(SnackBar(content: Text(l10n.saveSuccess)));
         },
         child: const Icon(Icons.add),
       ),
@@ -127,7 +126,7 @@ class _DetailPageState extends State<DetailPage> {
                 style: const TextStyle(fontSize: 18),
               ),
               const SizedBox(height: 10),
-              
+
               // 総合評価ポイント
               Text(
                 "総合評価ポイント: ${widget.novel.globalPoint}pt",

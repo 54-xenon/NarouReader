@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class SettingsTile extends StatelessWidget {
   final String titleText;
   final String subtitleText;
-  VoidCallback onPressed;  
+  VoidCallback onPressed;
   SettingsTile({
     super.key,
     required this.titleText,

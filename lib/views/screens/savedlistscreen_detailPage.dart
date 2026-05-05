@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:http/http.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:url_launcher/url_launcher.dart';
-import '../database/savedList_helper.dart';
-import '../models/savedList_modell.dart';
+import '../../providers/service_providers.dart';
+import '../../models/savedList_modell.dart';
 
-class SavedListDetailPage extends StatelessWidget {
-  SavedListDetailPage({super.key, required this.item});
+class SavedListDetailPage extends ConsumerWidget {
+  const SavedListDetailPage({super.key, required this.item});
 
-  final dbHelper = DatabaseHelper();
   final Item item;
 
   // 日付プロパティのフォーマットメソッド
@@ -39,7 +38,7 @@ class SavedListDetailPage extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context);
 
     return Scaffold(
@@ -69,7 +68,7 @@ class SavedListDetailPage extends StatelessWidget {
               );
 
               if (confirm == true) {
-                await dbHelper.deleteItem(item.ncode);
+                await ref.read(databaseHelperProvider).deleteItem(item.ncode);
                 if (context.mounted) {
                   Navigator.pop(context, true);
                 }
@@ -93,7 +92,7 @@ class SavedListDetailPage extends StatelessWidget {
               Text(
                 item.title,
                 style: const TextStyle(
-                  fontSize: 24, 
+                  fontSize: 24,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -112,14 +111,14 @@ class SavedListDetailPage extends StatelessWidget {
                 style: const TextStyle(fontSize: 18),
               ),
               const SizedBox(height: 10),
-              
+
               // 大ジャンル
               Text(
                 "大カテゴリ: ${item.biggenre}",
                 style: const TextStyle(fontSize: 18),
               ),
               const SizedBox(height: 10),
-              
+
               // ジャンル
               Text(
                 "カテゴリ: ${item.genre}",
@@ -140,7 +139,7 @@ class SavedListDetailPage extends StatelessWidget {
                 style: const TextStyle(fontSize: 18),
               ),
               const SizedBox(height: 10),
-              
+
               // 文字数
               Text(
                 "文字数: ${item.length}",
@@ -175,7 +174,7 @@ class SavedListDetailPage extends StatelessWidget {
                 style: const TextStyle(fontSize: 18),
               ),
               const SizedBox(height: 20),
-              
+
               const Divider(),
               Text(
                 item.story,
