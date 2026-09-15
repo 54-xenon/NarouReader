@@ -51,7 +51,7 @@ class BottomNavigation extends StatefulWidget {
 class _BottomNavigationState extends State<BottomNavigation> {
   static final _screens = [
     const TopPage(),
-    SearchScreen(),
+    const SearchScreen(),
     const SavedListPage(),
     const SettingsPage(),
   ];
